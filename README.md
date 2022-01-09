@@ -19,6 +19,7 @@ Progetto per fondamenti di ingegneria del software
 # Requisiti <a name="requisiti"></a>
 
 ## Requisiti non funzionali <a name="rf"></a>
+* Il sistema deve essere affidabile nella sua interezza. Di ogni ogni componente deve essere assicurato il corretto funzionamento a intervalli  regolari di un minuto. In caso di irregolarità, l'utente deve essere immediatamente avvisato dell'inoperatività del dispositivo
 
 ## Requisiti funzionali <a name="rnf"></a>
 
