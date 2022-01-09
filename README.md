@@ -2,7 +2,7 @@
 Progetto per fondamenti di ingegneria del software
 
 # Contenuti
-  [1.Descrizione progetto](#descrizione)  
+&emsp;[1.Descrizione progetto](#descrizione)  
   [2.Architettura generale](#architettura)  
   [3.Requisiti](#requisiti)  
   [4.Scenari](#scenari)  
