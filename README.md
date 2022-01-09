@@ -3,11 +3,11 @@ Progetto per fondamenti di ingegneria del software
 
 # Contenuti
 &emsp;[1.Descrizione progetto](#descrizione)  
-  [2.Architettura generale](#architettura)  
-  [3.Requisiti](#requisiti)  
-  [4.Scenari](#scenari)  
-  [5.Design](#design)  
-  [6.Quality assurance](#qa)  
+&emsp;[2.Architettura generale](#architettura)  
+&emsp;[3.Requisiti](#requisiti)  
+&emsp;[4.Scenari](#scenari)  
+&emsp;[5.Design](#design)  
+&emsp;[6.Quality assurance](#qa)  
   
 
 # Descrizone progetto <a name="descrizione"></a>
