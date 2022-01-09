@@ -21,8 +21,8 @@ Progetto per fondamenti di ingegneria del software
 ## Requisiti non funzionali <a name="rf"></a>
 * Il sistema deve essere affidabile nella sua interezza. Di ogni ogni componente (hardware e software) deve essere assicurato il corretto funzionamento a intervalli  regolari di un minuto. In caso di irregolarità, l'utente deve essere immediatamente avvisato dell'inoperatività del dispositivo
 * Le quantità di insulina rilasciate devono mantenere la glicemia entro valori sicuri in base allo stato del paziente:
-&emsp;* a digiuno: tra i 72 ed i 126 mg/dl  
-&emsp;* almeno 90 minuti dopo i pasti : tra i 90 ed i 153 mg/dl  
+&emsp;- a digiuno: tra i 72 ed i 126 mg/dl  
+&emsp;- almeno 90 minuti dopo i pasti : tra i 90 ed i 153 mg/dl  
 *
 
 ## Requisiti funzionali <a name="rnf"></a>
