@@ -4,7 +4,7 @@ Progetto per fondamenti di ingegneria del software
 # Contenuti
 &emsp;[1.Descrizione progetto](#descrizione)  
 &emsp;[2.Architettura generale](#architettura)  
-&emsp;[3.Requisiti](#requisiti)
+&emsp;[3.Requisiti](#requisiti)  
 &emsp;&emsp;[3.Requisiti funzionali](#rf)  
 &emsp;&emsp;[3.Requisiti non funzionali](#rnf)  
 &emsp;[4.Scenari](#scenari)  
