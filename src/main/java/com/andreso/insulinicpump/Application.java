@@ -10,9 +10,6 @@ import org.springframework.core.task.TaskExecutor;
 
 @SpringBootApplication
 public class Application {
-
-    /*
-
     @Bean
     public TaskExecutor taskExecutor() {
         return new SimpleAsyncTaskExecutor();
@@ -25,7 +22,7 @@ public class Application {
                 executor.execute(new MainControlLoop());
             }
         };
-    }*/
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
