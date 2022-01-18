@@ -19,13 +19,13 @@ const ctx = document.getElementById('glucoseLevel').getContext('2d');
 
 var fetchedData = [[${data}]];
 
-var safeLowValue = 2;
-var safeHighValue = 6;
-xMaxCurrent = fetchedData.length + 1;
+var safeLowValue = 72;
+var safeHighValue = 126;
+xMaxCurrent = fetchedData.length + 2;
 
 var options = {
     responsive: false,
-    maintainAspectRatio: true,
+    maintainAspectRatio: false,
     animation:false,
     elements:{
         line:{
@@ -67,12 +67,14 @@ var options = {
     scales:{
         xAxes:[{
             ticks: {
-                min:0
+                min:0,
+                max:1
             }
         }],
         yAxes:[{
             ticks: {
-                min:0
+                min:0,
+                max:1
             }
         }],
     }
@@ -94,10 +96,10 @@ const myChart = new Chart(ctx, {
 });
 </script>
 <button class="button-77" role="button">BOLUS</button>
-<h1 id="battery">Battery level : </h1> <h1 id="bData" th:text="${batteryLevel} + '%'">N/R</h1>
-<h1 id="insulinReservoir">Insulin reservoir : </h1> <h1 id="iData" th:text="${insulinReservoir}+ '%'">N/R</h1>
-<h1 id="selfTest"> Device status: </h1> <h1 id="dData" th:text="${deviceStatus}">N/R</h1>
-<h1 id="graph"> Graph: </h1> <h1 id="gData" th:text="${graphDuration}+ 'h'">N/R</h1>
-<h1 id="bloodGlucose"> BG: </h1> <h1 id="bgData" th:text = "${lastBloodGlucoseRead} + 'mg/dL'">N/R</h1>
+<h1 id="battery">Battery level : </h1> <h1 id="bData" th:text="${batteryLevel}!=null?${batteryLevel}+'%':'N/R'"></h1>
+<h1 id="insulinReservoir">Insulin reservoir : </h1> <h1 id="iData" th:text="${insulinReservoir}!=null?${insulinReservoir}+'%':'N/R'"></h1>
+<h1 id="selfTest"> Device status: </h1> <h1 id="dData" th:text="${deviceStatus}!=null?${deviceStatus}:'N/R'"></h1>
+<h1 id="graph"> Graph: </h1> <h1 id="gData" th:text="${graphDuration}!=null?${graphDuration}+' h':'N/R'"></h1>
+<h1 id="bloodGlucose"> BG: </h1> <h1 id="bgData" th:text = "${lastBloodGlucoseRead}!=null?${lastBloodGlucoseRead}+' mg/dL':'N/R'"></h1>
 </body>
 </html>

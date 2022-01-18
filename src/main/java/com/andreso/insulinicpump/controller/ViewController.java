@@ -22,11 +22,10 @@ public class ViewController {
 
     @RequestMapping("/")
     public String chart(Model model){
-        model.addAttribute("data",parseData());
+
+        model.addAttribute("data",prepareData());
 
         Optional<DeviceData> lastRead = deviceData.findById(deviceData.count());
-        Optional<DataPoint> lastBloodGlucoseRead = dataset.findById(dataset.count());
-
         if (lastRead.isPresent()){
             model.addAttribute("batteryLevel",lastRead.get().getBatteryLevel());
             model.addAttribute("insulinReservoir",lastRead.get().getBatteryLevel());
@@ -34,6 +33,7 @@ public class ViewController {
             model.addAttribute("graphDuration",lastRead.get().getBatteryLevel());
         }
 
+        Optional<DataPoint> lastBloodGlucoseRead = dataset.findById(dataset.count());
         if(lastBloodGlucoseRead.isPresent()){
             model.addAttribute("lastBloodGlucoseRead",lastBloodGlucoseRead.get().getGlucoseLevel());
         }
@@ -41,7 +41,7 @@ public class ViewController {
         return "chart";
     }
 
-    private LinkedList<Map<String,Integer>> parseData(){
+    private LinkedList<Map<String,Integer>> prepareData(){
         LinkedList<Map<String,Integer>> parsedDataset = new LinkedList<>();
         for (DataPoint element: dataset.findAll()){
             Map<String,Integer> dataPoint = new HashMap<>();
