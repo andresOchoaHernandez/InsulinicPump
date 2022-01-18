@@ -15,86 +15,83 @@
 
 <canvas id="glucoseLevel" width="900" height="400"></canvas>
 <script th:inline="javascript">
-/*<![CDATA[*/
+const ctx = document.getElementById('glucoseLevel').getContext('2d');
 
-    const ctx = document.getElementById('glucoseLevel').getContext('2d');
+var fetchedData = [[${data}]];
 
-    var fetchedData = [[${data}]];
+var safeLowValue = 2;
+var safeHighValue = 6;
+xMaxCurrent = fetchedData.length + 1;
 
-    var safeLowValue = 2;
-    var safeHighValue = 6;
-    xMaxCurrent = fetchedData.length + 1;
-
-    var options = {
-        responsive: false,
-        maintainAspectRatio: true,
-        animation:false,
-        elements:{
-            line:{
-                borderWidth: 1
-            }
-        },
-        plugins:{
-            autocolors:false,
-            annotation:{
-                annotations:{
-                    box1:{
-                        drawTime:'beforeDraw',
-                        type: 'box',
-                        xMin: 0,
-                        xMax: xMaxCurrent,
-                        yMin: safeLowValue,
-                        yMax: safeHighValue,
-                        backgroundColor: '#555555',
-                    },
-                    line1:{
-                        type: 'line',
-                        xMin: 0,
-                        xMax: xMaxCurrent,
-                        yMin: safeLowValue,
-                        yMax: safeLowValue,
-                        borderColor: '#dddddd'
-                    },
-                    line2:{
-                        type: 'line',
-                        xMin: 0,
-                        xMax: xMaxCurrent,
-                        yMin: safeHighValue,
-                        yMax: safeHighValue,
-                        borderColor: '#dddddd'
-                    }
-                }
-            }
-        },
-        scales:{
-            xAxes:[{
-                ticks: {
-                    min:0
-                }
-            }],
-            yAxes:[{
-                ticks: {
-                    min:0
-                }
-            }],
+var options = {
+    responsive: false,
+    maintainAspectRatio: true,
+    animation:false,
+    elements:{
+        line:{
+            borderWidth: 1
         }
-    };
+    },
+    plugins:{
+        autocolors:false,
+        annotation:{
+            annotations:{
+                box1:{
+                    drawTime:'beforeDraw',
+                    type: 'box',
+                    xMin: 0,
+                    xMax: xMaxCurrent,
+                    yMin: safeLowValue,
+                    yMax: safeHighValue,
+                    backgroundColor: '#555555',
+                },
+                line1:{
+                    type: 'line',
+                    xMin: 0,
+                    xMax: xMaxCurrent,
+                    yMin: safeLowValue,
+                    yMax: safeLowValue,
+                    borderColor: '#dddddd'
+                },
+                line2:{
+                    type: 'line',
+                    xMin: 0,
+                    xMax: xMaxCurrent,
+                    yMin: safeHighValue,
+                    yMax: safeHighValue,
+                    borderColor: '#dddddd'
+                }
+            }
+        }
+    },
+    scales:{
+        xAxes:[{
+            ticks: {
+                min:0
+            }
+        }],
+        yAxes:[{
+            ticks: {
+                min:0
+            }
+        }],
+    }
+};
 
-    const myChart = new Chart(ctx, {
-        type: 'scatter',
-        data: {
-            datasets: [{
-                label: 'blood glucose',
-                data: fetchedData,
-                borderColor: '#d44f00',
-                backgroundColor: '#d44f00',
-                showLine:true
-            }],
-        },
-        options: options,
-        plugins: ['chartjs-plugin-annotation']
-    });
-/*]]>*/
+const myChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'blood glucose',
+            data: fetchedData,
+            borderColor: '#d44f00',
+            backgroundColor: '#d44f00',
+            showLine:true
+        }],
+    },
+    options: options,
+    plugins: ['chartjs-plugin-annotation']
+});
 </script>
 <button class="button-77" role="button">BOLUS</button>
 <h1 id="battery">Battery level : </h1> <h1 id="bData">50%</h1>
