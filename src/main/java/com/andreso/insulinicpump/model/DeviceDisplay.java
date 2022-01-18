@@ -14,6 +14,7 @@ public class DeviceDisplay {
 
     public DeviceDisplay(){
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--window-size=1600,615");
         System.setProperty("webdriver.chrome.driver", Paths.get("./src/main/resources/chromedriver_win32_96/chromedriver.exe").toString());
         this.driver = new ChromeDriver(options);
     }

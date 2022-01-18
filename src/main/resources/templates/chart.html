@@ -4,22 +4,80 @@
     <title>chart</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/1.2.2/chartjs-plugin-annotation.min.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/DarkTheme.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.11.2/js/all.js"></script>
 </head>
 
 <body>
 <h1>Glucose level</h1>
 
-<canvas id="myChart" width="900" height="400"></canvas>
+<canvas id="glucoseLevel" width="900" height="400"></canvas>
 <script th:inline="javascript">
 /*<![CDATA[*/
 
-    const ctx = document.getElementById('myChart').getContext('2d');
+    const ctx = document.getElementById('glucoseLevel').getContext('2d');
 
     var fetchedData = [[${data}]];
+
+    var safeLowValue = 2;
+    var safeHighValue = 6;
+    xMaxCurrent = fetchedData.length + 1;
 
     var options = {
         responsive: false,
         maintainAspectRatio: true,
+        animation:false,
+        elements:{
+            line:{
+                borderWidth: 1
+            }
+        },
+        plugins:{
+            autocolors:false,
+            annotation:{
+                annotations:{
+                    box1:{
+                        drawTime:'beforeDraw',
+                        type: 'box',
+                        xMin: 0,
+                        xMax: xMaxCurrent,
+                        yMin: safeLowValue,
+                        yMax: safeHighValue,
+                        backgroundColor: '#555555',
+                    },
+                    line1:{
+                        type: 'line',
+                        xMin: 0,
+                        xMax: xMaxCurrent,
+                        yMin: safeLowValue,
+                        yMax: safeLowValue,
+                        borderColor: '#dddddd'
+                    },
+                    line2:{
+                        type: 'line',
+                        xMin: 0,
+                        xMax: xMaxCurrent,
+                        yMin: safeHighValue,
+                        yMax: safeHighValue,
+                        borderColor: '#dddddd'
+                    }
+                }
+            }
+        },
+        scales:{
+            xAxes:[{
+                ticks: {
+                    min:0
+                }
+            }],
+            yAxes:[{
+                ticks: {
+                    min:0
+                }
+            }],
+        }
     };
 
     const myChart = new Chart(ctx, {
@@ -28,13 +86,21 @@
             datasets: [{
                 label: 'blood glucose',
                 data: fetchedData,
-                borderColor: '#2196f3',
-                backgroundColor: '#2196f3',
+                borderColor: '#d44f00',
+                backgroundColor: '#d44f00',
+                showLine:true
             }],
         },
-        options: options
+        options: options,
+        plugins: ['chartjs-plugin-annotation']
     });
 /*]]>*/
 </script>
+<button class="button-77" role="button">BOLUS</button>
+<h1 id="battery">Battery level : </h1> <h1 id="bData">50%</h1>
+<h1 id="insulinReservoir">Insulin reservoir : </h1> <h1 id="iData">50%</h1>
+<h1 id="selfTest"> Device status: </h1> <h1 id="dData">50%</h1>
+<h1 id="graph"> Graph: </h1> <h1 id="gData">5h</h1>
+<h1 id="bloodGlucose"> BG: </h1> <h1 id="bgData">250 mg/dL</h1>
 </body>
 </html>

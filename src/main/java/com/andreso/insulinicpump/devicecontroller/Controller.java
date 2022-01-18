@@ -71,7 +71,7 @@ public class Controller {
     public void standByMode() {
         System.out.println("Entering stand by mode ...");
         try{
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         }
         catch(InterruptedException e){
             e.printStackTrace();
