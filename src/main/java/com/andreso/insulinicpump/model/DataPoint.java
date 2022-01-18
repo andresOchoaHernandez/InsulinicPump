@@ -8,7 +8,9 @@ import javax.persistence.Id;
 @Entity
 public class DataPoint {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO) private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private Integer timeStamp;
     private Integer glucoseLevel;
 

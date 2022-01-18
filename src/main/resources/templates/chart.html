@@ -94,10 +94,10 @@ const myChart = new Chart(ctx, {
 });
 </script>
 <button class="button-77" role="button">BOLUS</button>
-<h1 id="battery">Battery level : </h1> <h1 id="bData">50%</h1>
-<h1 id="insulinReservoir">Insulin reservoir : </h1> <h1 id="iData">50%</h1>
-<h1 id="selfTest"> Device status: </h1> <h1 id="dData">50%</h1>
-<h1 id="graph"> Graph: </h1> <h1 id="gData">5h</h1>
-<h1 id="bloodGlucose"> BG: </h1> <h1 id="bgData">250 mg/dL</h1>
+<h1 id="battery">Battery level : </h1> <h1 id="bData" th:text="${batteryLevel} + '%'">N/R</h1>
+<h1 id="insulinReservoir">Insulin reservoir : </h1> <h1 id="iData" th:text="${insulinReservoir}+ '%'">N/R</h1>
+<h1 id="selfTest"> Device status: </h1> <h1 id="dData" th:text="${deviceStatus}">N/R</h1>
+<h1 id="graph"> Graph: </h1> <h1 id="gData" th:text="${graphDuration}+ 'h'">N/R</h1>
+<h1 id="bloodGlucose"> BG: </h1> <h1 id="bgData" th:text = "${lastBloodGlucoseRead} + 'mg/dL'">N/R</h1>
 </body>
 </html>

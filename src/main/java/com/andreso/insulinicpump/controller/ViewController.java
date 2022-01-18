@@ -2,6 +2,8 @@ package com.andreso.insulinicpump.controller;
 
 import com.andreso.insulinicpump.model.DataPoint;
 import com.andreso.insulinicpump.model.DataPointsRepository;
+import com.andreso.insulinicpump.model.DeviceData;
+import com.andreso.insulinicpump.model.DeviceDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,9 +17,27 @@ public class ViewController {
     @Autowired
     private DataPointsRepository dataset;
 
+    @Autowired
+    private DeviceDataRepository deviceData;
+
     @RequestMapping("/")
     public String chart(Model model){
         model.addAttribute("data",parseData());
+
+        Optional<DeviceData> lastRead = deviceData.findById(deviceData.count());
+        Optional<DataPoint> lastBloodGlucoseRead = dataset.findById(dataset.count());
+
+        if (lastRead.isPresent()){
+            model.addAttribute("batteryLevel",lastRead.get().getBatteryLevel());
+            model.addAttribute("insulinReservoir",lastRead.get().getBatteryLevel());
+            model.addAttribute("deviceStatus",lastRead.get().getDeviceStatus());
+            model.addAttribute("graphDuration",lastRead.get().getBatteryLevel());
+        }
+
+        if(lastBloodGlucoseRead.isPresent()){
+            model.addAttribute("lastBloodGlucoseRead",lastBloodGlucoseRead.get().getGlucoseLevel());
+        }
+
         return "chart";
     }
 
