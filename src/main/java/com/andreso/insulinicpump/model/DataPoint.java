@@ -11,12 +11,12 @@ public class DataPoint {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Integer timeStamp;
+    private String timeStamp;
     private Integer glucoseLevel;
 
     protected DataPoint(){}
 
-    public DataPoint(Integer timeStamp,Integer glucoseLevel){
+    public DataPoint(String timeStamp,Integer glucoseLevel){
         this.timeStamp = timeStamp;
         this.glucoseLevel = glucoseLevel;
     }
@@ -38,11 +38,11 @@ public class DataPoint {
         this.id = id;
     }
 
-    public Integer getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(Integer timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 

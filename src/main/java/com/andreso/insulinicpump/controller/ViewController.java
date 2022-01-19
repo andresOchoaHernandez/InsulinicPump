@@ -41,14 +41,21 @@ public class ViewController {
         return "chart";
     }
 
-    private LinkedList<Map<String,Integer>> prepareData(){
-        LinkedList<Map<String,Integer>> parsedDataset = new LinkedList<>();
+    private Map<String,List> prepareData(){
+
+        Map<String,List> parsedDataset = new LinkedHashMap<>();
+
+        LinkedList<Integer> data = new LinkedList<>();
+        LinkedList<String> timeStamps = new LinkedList<>();
+
         for (DataPoint element: dataset.findAll()){
-            Map<String,Integer> dataPoint = new HashMap<>();
-            dataPoint.put("x",element.getTimeStamp());
-            dataPoint.put("y",element.getGlucoseLevel());
-            parsedDataset.add(dataPoint);
+            data.add(element.getGlucoseLevel());
+            timeStamps.add(element.getTimeStamp());
         }
+
+        parsedDataset.put("data",data);
+        parsedDataset.put("timeStamps",timeStamps);
+
         return parsedDataset;
     }
 }

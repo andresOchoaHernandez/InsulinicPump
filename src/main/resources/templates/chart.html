@@ -21,17 +21,13 @@ var fetchedData = [[${data}]];
 
 var safeLowValue = 72;
 var safeHighValue = 126;
-xMaxCurrent = fetchedData.length + 1;
+xMaxCurrent = fetchedData.timeStamps.length;
 
 var options = {
     responsive: false,
     maintainAspectRatio: false,
     animation:false,
-    elements:{
-        line:{
-            borderWidth: 1
-        }
-    },
+
     plugins:{
         autocolors:false,
         annotation:{
@@ -47,16 +43,12 @@ var options = {
                 },
                 line1:{
                     type: 'line',
-                    xMin: 0,
-                    xMax: xMaxCurrent,
                     yMin: safeLowValue,
                     yMax: safeLowValue,
                     borderColor: '#dddddd'
                 },
                 line2:{
                     type: 'line',
-                    xMin: 0,
-                    xMax: xMaxCurrent,
                     yMin: safeHighValue,
                     yMax: safeHighValue,
                     borderColor: '#dddddd'
@@ -64,23 +56,18 @@ var options = {
             }
         }
     },
-    scales:{
-        x:{
-            suggestedMin:0,
-            suggestedMax:xMaxCurrent
-        }
-    }
+
 };
 
 const myChart = new Chart(ctx, {
-    type: 'scatter',
+    type: 'line',
     data: {
+        labels: fetchedData.timeStamps,
         datasets: [{
             label: 'blood glucose',
-            data: fetchedData,
+            data: fetchedData.data,
             borderColor: '#d44f00',
             backgroundColor: '#d44f00',
-            showLine:true
         }],
     },
     options: options,

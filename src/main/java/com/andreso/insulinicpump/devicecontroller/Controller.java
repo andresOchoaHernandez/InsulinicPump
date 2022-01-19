@@ -6,6 +6,7 @@ public class Controller {
 
     /* mocked data */
     private int measurement = 1;
+    private String timeStamp = "";
     private int BG = 0;
     private int batteryLevel = 0;
     private int insulinReservoir = 0;
@@ -32,7 +33,9 @@ public class Controller {
 
     public void readGlucoseLevel(){
         System.out.println("Reading glucose levels ...");
+
         String[] datapoint = bloodSensor.getMeasurement();
+        this.timeStamp = datapoint[0];
         this.BG = Integer.parseInt(datapoint[1]);
     }
 
@@ -52,7 +55,7 @@ public class Controller {
 
         System.out.println("Sending information to server ...");
 
-        requestHandler.sendDataPoint(measurement,BG);
+        requestHandler.sendDataPoint(timeStamp,BG);
         requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,graphDuration,deviceStatus);
 
         /* mocked data */
@@ -67,7 +70,7 @@ public class Controller {
 
 
         try{
-            Thread.sleep(500);
+            Thread.sleep(50);
         }
         catch(InterruptedException e){
             e.printStackTrace();

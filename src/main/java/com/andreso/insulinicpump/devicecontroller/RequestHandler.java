@@ -15,9 +15,9 @@ public class RequestHandler {
 
     private static String BASE = "http://localhost:8080";
 
-    public void sendDataPoint(Integer timeStamp, Integer glucoseLevel){
+    public void sendDataPoint(String timeStamp, Integer glucoseLevel){
         String[] params = {"timeStamp","glucoseLevel"};
-        String[] values = {timeStamp.toString(),glucoseLevel.toString()};
+        String[] values = {timeStamp,glucoseLevel.toString()};
 
         boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDataPoint",params,values);
         if (error) System.out.println(" <data point> ERROR");

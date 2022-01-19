@@ -20,7 +20,7 @@ public class RestControllerUi {
 
     @PostMapping("/insertDataPoint")
     public void insertDataPoint(
-            @RequestParam(value = "timeStamp",required = true) Integer timeStamp,
+            @RequestParam(value = "timeStamp",required = true) String timeStamp,
             @RequestParam(value = "glucoseLevel",required = true) Integer glucoseLevel
             ){
         dataset.save(new DataPoint(timeStamp,glucoseLevel));
