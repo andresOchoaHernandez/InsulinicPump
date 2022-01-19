@@ -2,14 +2,23 @@ package com.andreso.insulinicpump.devicecontroller;
 
 import com.andreso.insulinicpump.model.*;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
+
+// TODO : MODIFY GRAPH DURATION IN UI, CONTROLLER ETC TO SHOW GRAPH DURATION IN HOURS AND MINUTES
+
 public class Controller {
+
+    private boolean isFirstTimeStamp = true;
+    private Timestamp firstTimeStamp;
 
     /* data */
     private String timeStamp;
     private int BG;
     private int batteryLevel;
     private int insulinReservoir;
-    private int graphDuration;
     private String deviceStatus;
 
     /* hardware components */
@@ -35,7 +44,7 @@ public class Controller {
         timeStamp = "";BG = 0;
 
         /* mocked data */
-        batteryLevel = 0;insulinReservoir = 0;graphDuration = 0;deviceStatus = "OK";
+        batteryLevel = 0;insulinReservoir = 0;deviceStatus = "OK";
     }
 
     public void turnOnDisplay(){
@@ -52,6 +61,21 @@ public class Controller {
         String[] datapoint = bloodSensor.getMeasurement();
         this.timeStamp = datapoint[0];
         this.BG = Integer.parseInt(datapoint[1]);
+
+        if (isFirstTimeStamp)
+            this.firstTimeStamp = createTimeStamp(timeStamp);
+        isFirstTimeStamp = false;
+    }
+
+    private Timestamp createTimeStamp(String timeStamp){
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date parsedDate = new Date(dateFormat.parse(timeStamp).getTime());
+            return new java.sql.Timestamp(parsedDate.getTime());
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public void calculateInsulinDose(){
@@ -71,12 +95,17 @@ public class Controller {
         System.out.println("Sending information to server ...");
 
         requestHandler.sendDataPoint(timeStamp,BG);
-        requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,graphDuration,deviceStatus);
+        System.out.println(calculateGraphDuration(timeStamp));
+        requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus);
 
         /* mocked data */
         batteryLevel++;
         insulinReservoir++;
-        graphDuration++;
+    }
+
+    private int calculateGraphDuration(String timestamp){
+        Timestamp currentTimeStamp = createTimeStamp(timestamp);
+        return (int) ((currentTimeStamp.getTime() - firstTimeStamp.getTime())/1000)%3600/60;
     }
 
     public void standByMode() {
@@ -84,7 +113,7 @@ public class Controller {
 
 
         try{
-            Thread.sleep(50);
+            Thread.sleep(5000);
         }
         catch(InterruptedException e){
             e.printStackTrace();

@@ -28,9 +28,9 @@ public class ViewController {
         Optional<DeviceData> lastRead = deviceData.findById(deviceData.count());
         if (lastRead.isPresent()){
             model.addAttribute("batteryLevel",lastRead.get().getBatteryLevel());
-            model.addAttribute("insulinReservoir",lastRead.get().getBatteryLevel());
+            model.addAttribute("insulinReservoir",lastRead.get().getInsulinReservoir());
             model.addAttribute("deviceStatus",lastRead.get().getDeviceStatus());
-            model.addAttribute("graphDuration",lastRead.get().getBatteryLevel());
+            model.addAttribute("graphDuration",lastRead.get().getGraphDuration());
         }
 
         Optional<DataPoint> lastBloodGlucoseRead = dataset.findById(dataset.count());
