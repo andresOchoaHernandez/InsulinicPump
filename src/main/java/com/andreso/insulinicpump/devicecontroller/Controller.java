@@ -5,7 +5,8 @@ import com.andreso.insulinicpump.model.*;
 public class Controller {
 
     /* mocked data */
-    private int datapoint = 0;
+    private int measurement = 1;
+    private int BG = 0;
     private int batteryLevel = 0;
     private int insulinReservoir = 0;
     private int graphDuration = 0;
@@ -31,6 +32,8 @@ public class Controller {
 
     public void readGlucoseLevel(){
         System.out.println("Reading glucose levels ...");
+        String[] datapoint = bloodSensor.getMeasurement();
+        this.BG = Integer.parseInt(datapoint[1]);
     }
 
     public void calculateInsulinDose(){
@@ -49,11 +52,11 @@ public class Controller {
 
         System.out.println("Sending information to server ...");
 
-        requestHandler.sendDataPoint(datapoint,datapoint);
+        requestHandler.sendDataPoint(measurement,BG);
         requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,graphDuration,deviceStatus);
 
         /* mocked data */
-        datapoint++;
+        measurement++;
         batteryLevel++;
         insulinReservoir++;
         graphDuration++;
@@ -61,11 +64,15 @@ public class Controller {
 
     public void standByMode() {
         System.out.println("Entering stand by mode ...");
+
+
         try{
-            Thread.sleep(9000);
+            Thread.sleep(500);
         }
         catch(InterruptedException e){
             e.printStackTrace();
         }
+
+
     }
 }

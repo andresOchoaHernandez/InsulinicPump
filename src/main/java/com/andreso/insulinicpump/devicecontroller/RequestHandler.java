@@ -18,16 +18,16 @@ public class RequestHandler {
     public void sendDataPoint(Integer timeStamp, Integer glucoseLevel){
         String[] params = {"timeStamp","glucoseLevel"};
         String[] values = {timeStamp.toString(),glucoseLevel.toString()};
-        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDataPoint",params,values);
 
+        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDataPoint",params,values);
         if (error) System.out.println(" <data point> ERROR");
     }
 
     public void sendDeviceInformation(Integer batteryLevel,Integer insulinReservoir,Integer graphDuration,String deviceStatus){
         String[] params = {"batteryLevel","insulinReservoir","graphDuration","deviceStatus"};
         String[] values = {batteryLevel.toString(),insulinReservoir.toString(),graphDuration.toString(),deviceStatus};
-        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDeviceData",params,values);
 
+        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDeviceData",params,values);
         if (error) System.out.println(" <device information> ERROR");
     }
 

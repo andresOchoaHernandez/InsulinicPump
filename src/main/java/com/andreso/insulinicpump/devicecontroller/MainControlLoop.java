@@ -22,7 +22,7 @@ public class MainControlLoop implements Runnable{
             controller.sendInformationToViewController();
             controller.standByMode();
 
-            if (loopIndex == 60)break;
+            if (loopIndex == 150)break;
 
             loopIndex++;
         }
