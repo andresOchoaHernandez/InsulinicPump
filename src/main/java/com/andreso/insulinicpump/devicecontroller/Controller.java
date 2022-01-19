@@ -4,24 +4,39 @@ import com.andreso.insulinicpump.model.*;
 
 public class Controller {
 
-    /* mocked data */
-    private int measurement = 1;
-    private String timeStamp = "";
-    private int BG = 0;
-    private int batteryLevel = 0;
-    private int insulinReservoir = 0;
-    private int graphDuration = 0;
-    private String deviceStatus = "OK";
+    /* data */
+    private String timeStamp;
+    private int BG;
+    private int batteryLevel;
+    private int insulinReservoir;
+    private int graphDuration;
+    private String deviceStatus;
 
     /* hardware components */
-    private DeviceDisplay display = new DeviceDisplay();
-    private BloodSensor bloodSensor = new BloodSensor();
-    private Clock clock = new Clock();
-    private PowerSupply powerSupply = new PowerSupply();
-    private Alarm alarm = new Alarm();
+    private DeviceDisplay display;
+    private BloodSensor bloodSensor;
+    private Clock clock;
+    private PowerSupply powerSupply;
+    private Alarm alarm;
 
     /* helper class */
-    private RequestHandler requestHandler = new RequestHandler();
+    private RequestHandler requestHandler;
+
+
+    public Controller(){
+        display = new DeviceDisplay();
+        bloodSensor = new BloodSensor();
+        clock = new Clock();
+        powerSupply = new PowerSupply();
+        alarm = new Alarm();
+        requestHandler = new RequestHandler();
+
+        /* data */
+        timeStamp = "";BG = 0;
+
+        /* mocked data */
+        batteryLevel = 0;insulinReservoir = 0;graphDuration = 0;deviceStatus = "OK";
+    }
 
     public void turnOnDisplay(){
         this.display.turnOn();
@@ -59,7 +74,6 @@ public class Controller {
         requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,graphDuration,deviceStatus);
 
         /* mocked data */
-        measurement++;
         batteryLevel++;
         insulinReservoir++;
         graphDuration++;
