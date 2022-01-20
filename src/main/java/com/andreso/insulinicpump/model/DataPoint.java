@@ -13,20 +13,31 @@ public class DataPoint {
     private Long id;
     private String timeStamp;
     private Integer glucoseLevel;
+    private int derivative;
 
     protected DataPoint(){}
 
-    public DataPoint(String timeStamp,Integer glucoseLevel){
+    public DataPoint(String timeStamp,Integer glucoseLevel,int derivative){
         this.timeStamp = timeStamp;
         this.glucoseLevel = glucoseLevel;
+        this.derivative = derivative;
+    }
+
+    public int getDerivative() {
+        return derivative;
+    }
+
+    public void setDerivative(int derivative) {
+        this.derivative = derivative;
     }
 
     @Override
     public String toString() {
         return "DataPoint{" +
                 "id=" + id +
-                ", timeStamp=" + timeStamp +
+                ", timeStamp='" + timeStamp + '\'' +
                 ", glucoseLevel=" + glucoseLevel +
+                ", derivative=" + derivative +
                 '}';
     }
 

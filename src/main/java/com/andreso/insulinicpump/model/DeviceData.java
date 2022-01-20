@@ -1,8 +1,6 @@
 package com.andreso.insulinicpump.model;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -14,14 +12,24 @@ public class DeviceData {
     private Integer insulinReservoir;
     private String graphDuration;
     private String deviceStatus;
+    private Float deliveredInsulin;
 
     protected DeviceData(){}
 
-    public DeviceData(Integer batteryLevel,Integer insulinReservoir,String graphDuration,String deviceStatus){
+    public DeviceData(Integer batteryLevel, Integer insulinReservoir, String graphDuration, String deviceStatus, Float deliveredInsulin){
         this.batteryLevel = batteryLevel;
         this.insulinReservoir = insulinReservoir;
         this.graphDuration = graphDuration;
         this.deviceStatus = deviceStatus;
+        this.deliveredInsulin = deliveredInsulin;
+    }
+
+    public Float getDeliveredInsulin() {
+        return deliveredInsulin;
+    }
+
+    public void setDeliveredInsulin(Float deliveredInsulin) {
+        this.deliveredInsulin = deliveredInsulin;
     }
 
     @Override

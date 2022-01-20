@@ -20,19 +20,21 @@ public class RestControllerUi {
 
     @PostMapping("/insertDataPoint")
     public void insertDataPoint(
-            @RequestParam(value = "timeStamp",required = true) String timeStamp,
-            @RequestParam(value = "glucoseLevel",required = true) Integer glucoseLevel
+            @RequestParam(value = "timeStamp") String timeStamp,
+            @RequestParam(value = "glucoseLevel") Integer glucoseLevel,
+            @RequestParam(value = "derivative") int derivative
             ){
-        dataset.save(new DataPoint(timeStamp,glucoseLevel));
+        dataset.save(new DataPoint(timeStamp,glucoseLevel,derivative));
     }
 
     @PostMapping("/insertDeviceData")
     public void insertDeviceData(
-            @RequestParam(value = "batteryLevel",required = true) Integer batteryLevel,
-            @RequestParam(value = "insulinReservoir",required = true) Integer insulinReservoir,
-            @RequestParam(value = "graphDuration",required = true) String graphDuration,
-            @RequestParam(value = "deviceStatus",required = true) String deviceStatus
+            @RequestParam(value = "batteryLevel") Integer batteryLevel,
+            @RequestParam(value = "insulinReservoir") Integer insulinReservoir,
+            @RequestParam(value = "graphDuration") String graphDuration,
+            @RequestParam(value = "deviceStatus") String deviceStatus,
+            @RequestParam(value = "deliveredInsulin") Float deliveredInsulin
     ){
-        deviceData.save(new DeviceData(batteryLevel, insulinReservoir, graphDuration,deviceStatus));
+        deviceData.save(new DeviceData(batteryLevel, insulinReservoir, graphDuration,deviceStatus,deliveredInsulin));
     }
 }

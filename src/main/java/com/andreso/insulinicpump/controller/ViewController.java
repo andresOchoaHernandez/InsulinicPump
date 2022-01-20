@@ -31,11 +31,13 @@ public class ViewController {
             model.addAttribute("insulinReservoir",lastRead.get().getInsulinReservoir());
             model.addAttribute("deviceStatus",lastRead.get().getDeviceStatus());
             model.addAttribute("graphDuration",lastRead.get().getGraphDuration());
+            model.addAttribute("deliveredInsulin",lastRead.get().getDeliveredInsulin());
         }
 
         Optional<DataPoint> lastBloodGlucoseRead = dataset.findById(dataset.count());
         if(lastBloodGlucoseRead.isPresent()){
             model.addAttribute("lastBloodGlucoseRead",lastBloodGlucoseRead.get().getGlucoseLevel());
+            model.addAttribute("derivative",lastBloodGlucoseRead.get().getDerivative());
         }
 
         return "chart";

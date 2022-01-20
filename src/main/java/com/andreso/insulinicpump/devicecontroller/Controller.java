@@ -5,10 +5,10 @@ import com.andreso.insulinicpump.model.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
-
-
-// TODO : wire up delivered insulin
 
 public class Controller {
 
@@ -21,6 +21,8 @@ public class Controller {
     private int batteryLevel;
     private int insulinReservoir;
     private String deviceStatus;
+    private Float deliveredInsulin;
+    private int derivative;
 
     /* hardware components */
     private DeviceDisplay display;
@@ -45,7 +47,7 @@ public class Controller {
         timeStamp = "";BG = 0;
 
         /* mocked data */
-        batteryLevel = 0;insulinReservoir = 0;deviceStatus = "OK";
+        batteryLevel = 0;insulinReservoir = 0;deviceStatus = "OK";deliveredInsulin=0.0f;derivative=1;
     }
 
     public void turnOnDisplay(){
@@ -84,12 +86,16 @@ public class Controller {
 
         System.out.println("Sending information to server ...");
 
-        requestHandler.sendDataPoint(timeStamp,BG);
-        requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus);
+        requestHandler.sendDataPoint(timeStamp,BG,derivative);
+        requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus,deliveredInsulin);
 
         /* mocked data */
+        List<Integer> derivatives = new ArrayList<>();
+        derivatives.add(-1);derivatives.add(0);derivatives.add(1);
+        derivative =derivatives.get(new Random().nextInt(derivatives.size()));
         batteryLevel++;
         insulinReservoir++;
+        deliveredInsulin++;
     }
 
     public void standByMode() {

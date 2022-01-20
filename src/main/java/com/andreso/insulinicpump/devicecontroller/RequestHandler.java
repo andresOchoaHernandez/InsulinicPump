@@ -1,5 +1,6 @@
 package com.andreso.insulinicpump.devicecontroller;
 
+import jdk.internal.org.jline.keymap.KeyMap;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
@@ -15,17 +16,17 @@ public class RequestHandler {
 
     private static String BASE = "http://localhost:8080";
 
-    public void sendDataPoint(String timeStamp, Integer glucoseLevel){
-        String[] params = {"timeStamp","glucoseLevel"};
-        String[] values = {timeStamp,glucoseLevel.toString()};
+    public void sendDataPoint(String timeStamp, Integer glucoseLevel,int derivative){
+        String[] params = {"timeStamp","glucoseLevel","derivative"};
+        String[] values = {timeStamp,glucoseLevel.toString(),Integer.toString(derivative)};
 
         boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDataPoint",params,values);
         if (error) System.out.println(" <data point> ERROR");
     }
 
-    public void sendDeviceInformation(Integer batteryLevel,Integer insulinReservoir,String graphDuration,String deviceStatus){
-        String[] params = {"batteryLevel","insulinReservoir","graphDuration","deviceStatus"};
-        String[] values = {batteryLevel.toString(),insulinReservoir.toString(),graphDuration,deviceStatus};
+    public void sendDeviceInformation(Integer batteryLevel,Integer insulinReservoir,String graphDuration,String deviceStatus,Float deliveredInsulin){
+        String[] params = {"batteryLevel","insulinReservoir","graphDuration","deviceStatus","deliveredInsulin"};
+        String[] values = {batteryLevel.toString(),insulinReservoir.toString(),graphDuration,deviceStatus,Float.toString(deliveredInsulin)};
 
         boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDeviceData",params,values);
         if (error) System.out.println(" <device information> ERROR");

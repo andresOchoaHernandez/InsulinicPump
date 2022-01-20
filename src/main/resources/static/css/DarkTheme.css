@@ -109,37 +109,37 @@ canvas#glucoseLevel{
 
 h1#battery{
   position: absolute;
-  left: 1000px;
+  left: 1020px;
   top: 50px;
 }
 
 h1#insulinReservoir{
   position: absolute;
-  left: 1000px;
+  left: 1020px;
   top: 120px;
 }
 
 h1#selfTest{
   position: absolute;
-  left: 1000px;
+  left: 1020px;
   top: 190px;
 }
 
 h1#graph{
   position: absolute;
-  left: 1000px;
+  left: 1020px;
   top: 260px;
 }
 
 h1#bloodGlucose{
   position: absolute;
-  left: 1000px;
+  left: 1020px;
   top: 330px;
 }
 
 h1#insulinUnits{
   position: absolute;
-  left: 1000px;
+  left: 1020px;
   top: 400px;
 }
 
