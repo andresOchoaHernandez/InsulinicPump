@@ -13,7 +13,7 @@
 <body>
 <h1>Glucose level</h1>
 
-<canvas id="glucoseLevel" width="900" height="400"></canvas>
+<canvas id="glucoseLevel" width="975" height="480"></canvas>
 <script th:inline="javascript">
 const ctx = document.getElementById('glucoseLevel').getContext('2d');
 
@@ -22,6 +22,13 @@ var fetchedData = [[${data}]];
 var safeLowValue = 72;
 var safeHighValue = 126;
 xMaxCurrent = fetchedData.timeStamps.length;
+var textPos;
+if(xMaxCurrent <= 2){
+    textPos = 0.5;
+}
+else{
+    textPos = xMaxCurrent/2;
+}
 
 var options = {
     responsive: false,
@@ -29,7 +36,7 @@ var options = {
     animation:false,
 
     plugins:{
-        autocolors:false,
+        autocolors: false,
         annotation:{
             annotations:{
                 box1:{
@@ -52,6 +59,22 @@ var options = {
                     yMin: safeHighValue,
                     yMax: safeHighValue,
                     borderColor: '#dddddd'
+                },
+                label1:{
+                    type: 'label',
+                    xValue:textPos,
+                    yValue: safeLowValue + 3,
+                    backgroundColor: 'transparent',
+                    content:["safe low bound"],
+                    color: '#2b2b2b'
+                },
+                label2:{
+                    type: 'label',
+                    xValue:textPos,
+                    yValue: safeHighValue - 3,
+                    backgroundColor: 'transparent',
+                    content:["safe high bound"],
+                    color: '#2b2b2b'
                 }
             }
         }
@@ -64,7 +87,7 @@ const myChart = new Chart(ctx, {
     data: {
         labels: fetchedData.timeStamps,
         datasets: [{
-            label: 'blood glucose',
+            label: 'blood glucose mg/dL',
             data: fetchedData.data,
             borderColor: '#d44f00',
             backgroundColor: '#d44f00',
@@ -78,7 +101,8 @@ const myChart = new Chart(ctx, {
 <h1 id="battery">Battery level : </h1> <h1 id="bData" th:text="${batteryLevel}!=null?${batteryLevel}+'%':'N/R'"></h1>
 <h1 id="insulinReservoir">Insulin reservoir : </h1> <h1 id="iData" th:text="${insulinReservoir}!=null?${insulinReservoir}+'%':'N/R'"></h1>
 <h1 id="selfTest"> Device status: </h1> <h1 id="dData" th:text="${deviceStatus}!=null?${deviceStatus}:'N/R'"></h1>
-<h1 id="graph"> Graph: </h1> <h1 id="gData" th:text="${graphDuration}!=null?${graphDuration}+' min':'N/R'"></h1>
+<h1 id="graph"> Graph: </h1> <h1 id="gData" th:text="${graphDuration}!=null?${graphDuration}:'N/R'"></h1>
 <h1 id="bloodGlucose"> BG: </h1> <h1 id="bgData" th:text = "${lastBloodGlucoseRead}!=null?${lastBloodGlucoseRead}+' mg/dL':'N/R'"></h1>
+<h1 id="insulinUnits"> Insulin delivered: </h1> <h1 id="diData" th:text = "${deliveredInsulin}!=null?${deliveredInsulin}+' units':'N/R'"></h1>
 </body>
 </html>

@@ -12,12 +12,12 @@ public class DeviceData {
     private Long id=1l;
     private Integer batteryLevel;
     private Integer insulinReservoir;
-    private Integer graphDuration;
+    private String graphDuration;
     private String deviceStatus;
 
     protected DeviceData(){}
 
-    public DeviceData(Integer batteryLevel,Integer insulinReservoir,Integer graphDuration,String deviceStatus){
+    public DeviceData(Integer batteryLevel,Integer insulinReservoir,String graphDuration,String deviceStatus){
         this.batteryLevel = batteryLevel;
         this.insulinReservoir = insulinReservoir;
         this.graphDuration = graphDuration;
@@ -67,11 +67,11 @@ public class DeviceData {
         this.insulinReservoir = insulinReservoir;
     }
 
-    public Integer getGraphDuration() {
+    public String getGraphDuration() {
         return graphDuration;
     }
 
-    public void setGraphDuration(Integer graphDuration) {
+    public void setGraphDuration(String graphDuration) {
         this.graphDuration = graphDuration;
     }
 }

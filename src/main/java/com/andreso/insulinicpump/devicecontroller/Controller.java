@@ -5,9 +5,10 @@ import com.andreso.insulinicpump.model.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.concurrent.TimeUnit;
 
 
-// TODO : MODIFY GRAPH DURATION IN UI, CONTROLLER ETC TO SHOW GRAPH DURATION IN HOURS AND MINUTES
+// TODO : wire up delivered insulin
 
 public class Controller {
 
@@ -67,17 +68,6 @@ public class Controller {
         isFirstTimeStamp = false;
     }
 
-    private Timestamp createTimeStamp(String timeStamp){
-        try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            Date parsedDate = new Date(dateFormat.parse(timeStamp).getTime());
-            return new java.sql.Timestamp(parsedDate.getTime());
-        } catch(Exception e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
     public void calculateInsulinDose(){
         System.out.println("Calculating insulin dose to deliver ...");
     }
@@ -95,7 +85,6 @@ public class Controller {
         System.out.println("Sending information to server ...");
 
         requestHandler.sendDataPoint(timeStamp,BG);
-        System.out.println(calculateGraphDuration(timeStamp));
         requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus);
 
         /* mocked data */
@@ -103,22 +92,37 @@ public class Controller {
         insulinReservoir++;
     }
 
-    private int calculateGraphDuration(String timestamp){
-        Timestamp currentTimeStamp = createTimeStamp(timestamp);
-        return (int) ((currentTimeStamp.getTime() - firstTimeStamp.getTime())/1000)%3600/60;
-    }
-
     public void standByMode() {
         System.out.println("Entering stand by mode ...");
 
 
         try{
-            Thread.sleep(5000);
+            Thread.sleep(500);
         }
         catch(InterruptedException e){
             e.printStackTrace();
         }
 
 
+    }
+
+    private Timestamp createTimeStamp(String timeStamp){
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date parsedDate = new Date(dateFormat.parse(timeStamp).getTime());
+            return new java.sql.Timestamp(parsedDate.getTime());
+        } catch(Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String calculateGraphDuration(String timestamp){
+        Timestamp currentTimeStamp = createTimeStamp(timestamp);
+
+        long difference = currentTimeStamp.getTime() - firstTimeStamp.getTime();
+        int hours = (int) TimeUnit.MILLISECONDS.toHours(difference);
+
+        return hours + " h";
     }
 }

@@ -23,9 +23,9 @@ public class RequestHandler {
         if (error) System.out.println(" <data point> ERROR");
     }
 
-    public void sendDeviceInformation(Integer batteryLevel,Integer insulinReservoir,Integer graphDuration,String deviceStatus){
+    public void sendDeviceInformation(Integer batteryLevel,Integer insulinReservoir,String graphDuration,String deviceStatus){
         String[] params = {"batteryLevel","insulinReservoir","graphDuration","deviceStatus"};
-        String[] values = {batteryLevel.toString(),insulinReservoir.toString(),graphDuration.toString(),deviceStatus};
+        String[] values = {batteryLevel.toString(),insulinReservoir.toString(),graphDuration,deviceStatus};
 
         boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDeviceData",params,values);
         if (error) System.out.println(" <device information> ERROR");

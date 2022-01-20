@@ -137,6 +137,12 @@ h1#bloodGlucose{
   top: 330px;
 }
 
+h1#insulinUnits{
+  position: absolute;
+  left: 1000px;
+  top: 400px;
+}
+
 h1#bData{
   position: absolute;
   left: 1370px;
@@ -167,6 +173,14 @@ h1#bgData{
   top: 330px;
 }
 
+h1#diData{
+  position: absolute;
+  left: 1370px;
+  top: 400px;
+}
+
+
+
 /* CSS */
 .button-77 {
   align-items: center;
@@ -194,7 +208,7 @@ h1#bgData{
   pointer-events: auto;
   position: absolute;
   left: 1000px;
-  top: 410px;
+  top: 485px;
   text-align: center;
   text-decoration: none;
   text-transform: none;

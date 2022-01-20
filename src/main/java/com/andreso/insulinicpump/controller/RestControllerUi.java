@@ -30,7 +30,7 @@ public class RestControllerUi {
     public void insertDeviceData(
             @RequestParam(value = "batteryLevel",required = true) Integer batteryLevel,
             @RequestParam(value = "insulinReservoir",required = true) Integer insulinReservoir,
-            @RequestParam(value = "graphDuration",required = true) Integer graphDuration,
+            @RequestParam(value = "graphDuration",required = true) String graphDuration,
             @RequestParam(value = "deviceStatus",required = true) String deviceStatus
     ){
         deviceData.save(new DeviceData(batteryLevel, insulinReservoir, graphDuration,deviceStatus));
