@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.*;
 
 @Controller
-public class ViewController {
+public class ViewControllerUi {
 
     @Autowired
     private DataPointsRepository dataset;
