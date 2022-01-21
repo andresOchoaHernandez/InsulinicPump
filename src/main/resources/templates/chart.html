@@ -17,70 +17,79 @@
 <script th:inline="javascript">
 const ctx = document.getElementById('glucoseLevel').getContext('2d');
 
+/* load data from the model  |TODO| */
 var fetchedData = [[${data}]];
-
 var safeLowValue = 72;
 var safeHighValue = 126;
+
 xMaxCurrent = fetchedData.timeStamps.length;
-var textPos;
-if(xMaxCurrent <= 2){
-    textPos = 0.5;
+
+var options;
+if(xMaxCurrent == 0){
+
+    options = {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation:false,
+    };
+
 }
 else{
-    textPos = xMaxCurrent/2;
-}
 
-var options = {
-    responsive: false,
-    maintainAspectRatio: false,
-    animation:false,
+    var options = {
+        responsive: false,
+        maintainAspectRatio: false,
+        animation:false,
 
-    plugins:{
-        autocolors: false,
-        annotation:{
-            annotations:{
-                box1:{
-                    drawTime:'beforeDraw',
-                    type: 'box',
-                    xMin: 0,
-                    xMax: xMaxCurrent,
-                    yMin: safeLowValue,
-                    yMax: safeHighValue,
-                    backgroundColor: '#555555',
-                },
-                line1:{
-                    type: 'line',
-                    yMin: safeLowValue,
-                    yMax: safeLowValue,
-                    borderColor: '#dddddd'
-                },
-                line2:{
-                    type: 'line',
-                    yMin: safeHighValue,
-                    yMax: safeHighValue,
-                    borderColor: '#dddddd'
-                },
-                label1:{
-                    type: 'label',
-                    xValue:textPos,
-                    yValue: safeLowValue + 3,
-                    backgroundColor: 'transparent',
-                    content:["safe low bound"],
-                    color: '#2b2b2b'
-                },
-                label2:{
-                    type: 'label',
-                    xValue:textPos,
-                    yValue: safeHighValue - 3,
-                    backgroundColor: 'transparent',
-                    content:["safe high bound"],
-                    color: '#2b2b2b'
+        plugins:{
+            autocolors: false,
+            annotation:{
+                annotations:{
+                    box1:{
+                        drawTime:'beforeDraw',
+                        type: 'box',
+                        xMin: 0,
+                        xMax: xMaxCurrent,
+                        yMin: safeLowValue,
+                        yMax: safeHighValue,
+                        backgroundColor: '#555555',
+                    },
+                    line1:{
+                        type: 'line',
+                        yMin: safeLowValue,
+                        yMax: safeLowValue,
+                        borderColor: '#dddddd'
+                    },
+                    line2:{
+                        type: 'line',
+                        yMin: safeHighValue,
+                        yMax: safeHighValue,
+                        borderColor: '#dddddd'
+                    },
+                    label1:{
+                        type: 'label',
+                        xValue:(xMaxCurrent <= 2)?xMaxCurrent/2:0.5,
+                        yValue: safeLowValue + 3,
+                        backgroundColor: 'transparent',
+                        content:["safe low bound"],
+                        color: '#2b2b2b'
+                    },
+                    label2:{
+                        type: 'label',
+                        xValue:(xMaxCurrent <= 2)?xMaxCurrent/2:0.5,
+                        yValue: safeHighValue - 3,
+                        backgroundColor: 'transparent',
+                        content:["safe high bound"],
+                        color: '#2b2b2b'
+                    }
                 }
             }
         }
-    },
 
-};
+    };
+
+
+}
 
 const myChart = new Chart(ctx, {
     type: 'line',
