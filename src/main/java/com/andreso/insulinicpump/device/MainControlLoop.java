@@ -4,7 +4,7 @@ import com.andreso.insulinicpump.device.pumpcontroller.Controller;
 
 public class MainControlLoop implements Runnable{
 
-    private Controller controller;
+    private final Controller controller;
 
     public MainControlLoop(){
         this.controller = new Controller();

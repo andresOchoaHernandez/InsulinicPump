@@ -13,7 +13,7 @@ import java.util.List;
 
 public class RequestHandler {
 
-    private static String BASE = "http://localhost:8080";
+    private static final String BASE = "http://localhost:8080";
 
     public void sendDataPoint(String timeStamp, Integer glucoseLevel,int derivative){
         String[] params = {"timeStamp","glucoseLevel","derivative"};

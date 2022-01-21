@@ -8,8 +8,8 @@ import java.util.*;
 
 public class BloodSensor {
     private class DataPoint{
-        private String timeStamp;
-        private String BG;
+        private final String timeStamp;
+        private final String BG;
 
         public DataPoint(String timeStamp,String BG){
             this.timeStamp=timeStamp;

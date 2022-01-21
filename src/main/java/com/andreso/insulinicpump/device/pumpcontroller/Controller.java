@@ -17,25 +17,25 @@ public class Controller {
     private Timestamp firstTimeStamp;
 
     /* data */
-    private int safeLowBound;
-    private int safeHighBound;
+    private final int safeLowBound;
+    private final int safeHighBound;
     private String timeStamp;
     private int BG;
     private int batteryLevel;
     private int insulinReservoir;
-    private String deviceStatus;
+    private final String deviceStatus;
     private Float deliveredInsulin;
     private int derivative;
 
     /* hardware components */
-    private DeviceDisplay display;
-    private BloodSensor bloodSensor;
-    private Clock clock;
-    private PowerSupply powerSupply;
-    private Alarm alarm;
+    private final DeviceDisplay display;
+    private final BloodSensor bloodSensor;
+    private final Clock clock;
+    private final PowerSupply powerSupply;
+    private final Alarm alarm;
 
     /* helper class */
-    private RequestHandler requestHandler;
+    private final RequestHandler requestHandler;
 
 
     public Controller(){

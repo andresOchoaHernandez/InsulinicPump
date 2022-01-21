@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 
 public class DeviceDisplay {
 
-    private WebDriver driver;
-    private static String HOME = "http://localhost:8080";
+    private final WebDriver driver;
+    private static final String HOME = "http://localhost:8080";
 
     public DeviceDisplay(){
         ChromeOptions options = new ChromeOptions();
