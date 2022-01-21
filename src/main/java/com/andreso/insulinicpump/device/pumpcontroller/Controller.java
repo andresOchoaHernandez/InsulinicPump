@@ -1,6 +1,7 @@
-package com.andreso.insulinicpump.devicecontroller;
+package com.andreso.insulinicpump.device.pumpcontroller;
 
-import com.andreso.insulinicpump.model.*;
+import com.andreso.insulinicpump.device.deviceutils.RequestHandler;
+import com.andreso.insulinicpump.device.hardware.*;
 
 import java.sql.Date;
 import java.sql.Timestamp;

@@ -1,6 +1,6 @@
-package com.andreso.insulinicpump.controller;
+package com.andreso.insulinicpump.view.controller;
 
-import com.andreso.insulinicpump.model.*;
+import com.andreso.insulinicpump.view.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;

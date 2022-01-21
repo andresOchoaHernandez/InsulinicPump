@@ -1,4 +1,4 @@
-package com.andreso.insulinicpump.model;
+package com.andreso.insulinicpump.view.model;
 
 import org.springframework.data.repository.CrudRepository;
 

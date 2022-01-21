@@ -1,6 +1,5 @@
-package com.andreso.insulinicpump.devicecontroller;
+package com.andreso.insulinicpump.device.deviceutils;
 
-import jdk.internal.org.jline.keymap.KeyMap;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;

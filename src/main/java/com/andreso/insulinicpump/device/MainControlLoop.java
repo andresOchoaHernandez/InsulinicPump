@@ -1,4 +1,6 @@
-package com.andreso.insulinicpump.devicecontroller;
+package com.andreso.insulinicpump.device;
+
+import com.andreso.insulinicpump.device.pumpcontroller.Controller;
 
 public class MainControlLoop implements Runnable{
 

@@ -1,4 +1,4 @@
-package com.andreso.insulinicpump.model;
+package com.andreso.insulinicpump.device.hardware;
 
 
 import org.openqa.selenium.WebDriver;
