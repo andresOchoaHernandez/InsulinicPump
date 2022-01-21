@@ -22,89 +22,88 @@ var fetchedData = [[${data}]];
 var safeLowValue = 72;
 var safeHighValue = 126;
 
+/* configuration */
+var graphColor ='#d44f00';
+var boxColor = '#555555';
+var lineColor = '#dddddd';
+var textColor = '#2b2b2b';
+
+
 xMaxCurrent = fetchedData.timeStamps.length;
 
-var options;
-if(xMaxCurrent == 0){
+var options = {
+    responsive: false,
+    maintainAspectRatio: false,
+    animation:false,
+};
 
-    options = {
-        responsive: false,
-        maintainAspectRatio: false,
-        animation:false,
-    };
+if(xMaxCurrent > 0){
 
-}
-else{
-
-    var options = {
-        responsive: false,
-        maintainAspectRatio: false,
-        animation:false,
-
-        plugins:{
-            autocolors: false,
-            annotation:{
-                annotations:{
-                    box1:{
-                        drawTime:'beforeDraw',
-                        type: 'box',
-                        xMin: 0,
-                        xMax: xMaxCurrent,
-                        yMin: safeLowValue,
-                        yMax: safeHighValue,
-                        backgroundColor: '#555555',
-                    },
-                    line1:{
-                        type: 'line',
-                        yMin: safeLowValue,
-                        yMax: safeLowValue,
-                        borderColor: '#dddddd'
-                    },
-                    line2:{
-                        type: 'line',
-                        yMin: safeHighValue,
-                        yMax: safeHighValue,
-                        borderColor: '#dddddd'
-                    },
-                    label1:{
-                        type: 'label',
-                        xValue:(xMaxCurrent <= 2)?xMaxCurrent/2:0.5,
-                        yValue: safeLowValue + 3,
-                        backgroundColor: 'transparent',
-                        content:["safe low bound"],
-                        color: '#2b2b2b'
-                    },
-                    label2:{
-                        type: 'label',
-                        xValue:(xMaxCurrent <= 2)?xMaxCurrent/2:0.5,
-                        yValue: safeHighValue - 3,
-                        backgroundColor: 'transparent',
-                        content:["safe high bound"],
-                        color: '#2b2b2b'
-                    }
+    var plugins = {
+        autocolors: false,
+        annotation:{
+            annotations:{
+                box1:{
+                    drawTime:'beforeDraw',
+                    type: 'box',
+                    xMin: 0,
+                    xMax: xMaxCurrent,
+                    yMin: safeLowValue,
+                    yMax: safeHighValue,
+                    backgroundColor: boxColor,
+                },
+                line1:{
+                    type: 'line',
+                    yMin: safeLowValue,
+                    yMax: safeLowValue,
+                    borderColor: lineColor
+                },
+                line2:{
+                    type: 'line',
+                    yMin: safeHighValue,
+                    yMax: safeHighValue,
+                    borderColor: lineColor
+                },
+                label1:{
+                    type: 'label',
+                    xValue:(xMaxCurrent <= 2)?0.5:xMaxCurrent/2,
+                    yValue: safeLowValue + 3,
+                    backgroundColor: 'transparent',
+                    content:["safe low bound"],
+                    color: textColor
+                },
+                label2:{
+                    type: 'label',
+                    xValue:(xMaxCurrent <= 2)?0.5:xMaxCurrent/2,
+                    yValue: safeHighValue - 3,
+                    backgroundColor: 'transparent',
+                    content:["safe high bound"],
+                    color: textColor
                 }
             }
         }
-
     };
 
+    options['plugins'] = plugins;
 
 }
 
-const myChart = new Chart(ctx, {
+const myChart = new Chart(ctx,
+{
     type: 'line',
     data: {
         labels: fetchedData.timeStamps,
         datasets: [{
             label: 'blood glucose mg/dL',
             data: fetchedData.data,
-            borderColor: '#d44f00',
-            backgroundColor: '#d44f00',
+            borderColor: graphColor,
+            backgroundColor: graphColor,
         }],
     },
     options: options,
     plugins: ['chartjs-plugin-annotation']
-});
+}
+);
 </script>
 <button class="button-77" role="button">BOLUS</button>
 <h1 id="battery">Battery level : </h1> <h1 id="bData" th:text="${batteryLevel}!=null?${batteryLevel}+'%':'N/R'"></h1>
