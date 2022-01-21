@@ -1,9 +1,6 @@
 package com.andreso.insulinicpump.controller;
 
-import com.andreso.insulinicpump.model.DataPoint;
-import com.andreso.insulinicpump.model.DataPointsRepository;
-import com.andreso.insulinicpump.model.DeviceData;
-import com.andreso.insulinicpump.model.DeviceDataRepository;
+import com.andreso.insulinicpump.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +14,9 @@ public class RestControllerUi {
 
     @Autowired
     private DeviceDataRepository deviceData;
+
+    @Autowired
+    private BGBoundsRepository bounds;
 
     @PostMapping("/insertDataPoint")
     public void insertDataPoint(
@@ -36,5 +36,13 @@ public class RestControllerUi {
             @RequestParam(value = "deliveredInsulin") Float deliveredInsulin
     ){
         deviceData.save(new DeviceData(batteryLevel, insulinReservoir, graphDuration,deviceStatus,deliveredInsulin));
+    }
+
+    @PostMapping("/insertBounds")
+    public void insertBounds(
+            @RequestParam(value = "safeLowBound") int safeLowBound,
+            @RequestParam(value = "safeHighBound") int safeHighBound
+    ){
+        bounds.save(new BGBounds(safeLowBound,safeHighBound));
     }
 }

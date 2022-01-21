@@ -32,6 +32,14 @@ public class RequestHandler {
         if (error) System.out.println(" <device information> ERROR");
     }
 
+    public void sendSafeBounds(int safeLowBound, int safeHighBound){
+        String[] params = {"safeLowBound","safeHighBound"};
+        String[] values = {Integer.toString(safeLowBound),Integer.toString(safeHighBound)};
+
+        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertBounds",params,values);
+        if (error) System.out.println(" <safe bounds> ERROR");
+    }
+
     private boolean buildAndSendHttpPostRequest(String URL,String[]parameterNames,String[]values){
 
         if(parameterNames.length != values.length) return false;

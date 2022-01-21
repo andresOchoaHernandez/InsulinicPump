@@ -16,6 +16,8 @@ public class Controller {
     private Timestamp firstTimeStamp;
 
     /* data */
+    private int safeLowBound;
+    private int safeHighBound;
     private String timeStamp;
     private int BG;
     private int batteryLevel;
@@ -44,7 +46,8 @@ public class Controller {
         requestHandler = new RequestHandler();
 
         /* data */
-        timeStamp = "";BG = 0;
+        timeStamp = "";BG = 0;safeLowBound=72;safeHighBound=126;
+        requestHandler.sendSafeBounds(safeLowBound,safeHighBound);
 
         /* mocked data */
         batteryLevel = 0;insulinReservoir = 0;deviceStatus = "OK";deliveredInsulin=0.0f;derivative=1;

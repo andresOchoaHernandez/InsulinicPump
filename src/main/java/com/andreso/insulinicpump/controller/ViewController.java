@@ -1,9 +1,6 @@
 package com.andreso.insulinicpump.controller;
 
-import com.andreso.insulinicpump.model.DataPoint;
-import com.andreso.insulinicpump.model.DataPointsRepository;
-import com.andreso.insulinicpump.model.DeviceData;
-import com.andreso.insulinicpump.model.DeviceDataRepository;
+import com.andreso.insulinicpump.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,10 +17,19 @@ public class ViewController {
     @Autowired
     private DeviceDataRepository deviceData;
 
+    @Autowired
+    private BGBoundsRepository bounds;
+
     @RequestMapping("/")
     public String chart(Model model){
 
         model.addAttribute("data",prepareData());
+
+        Optional<BGBounds> entry = bounds.findById(bounds.count());
+        if(entry.isPresent()){
+            model.addAttribute("safeLowValue",entry.get().getSafeLowBound());
+            model.addAttribute("safeHighValue",entry.get().getSafeHighBound());
+        }
 
         Optional<DeviceData> lastRead = deviceData.findById(deviceData.count());
         if (lastRead.isPresent()){
