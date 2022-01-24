@@ -9,4 +9,8 @@ public abstract class DeviceComponent {
     public void setDeviceStateVariable(boolean isDeviceWorkingProperly){
         this.isDeviceWorkingProperly = isDeviceWorkingProperly;
     }
+
+    public boolean getDeviceStateVariable(){
+        return this.isDeviceWorkingProperly;
+    }
 }

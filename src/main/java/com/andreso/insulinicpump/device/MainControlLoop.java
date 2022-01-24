@@ -12,22 +12,24 @@ public class MainControlLoop implements Runnable{
 
     @Override
     public void run() {
-
         int loopIndex = 1 ;
 
+        controller.turnOnDisplay();
+
         while(true){
-            controller.turnOnDisplay();
             controller.readGlucoseLevel();
             controller.calculateInsulinDose();
             controller.deliverInsulin();
             controller.executeDeviceRoutineTest();
             controller.sendInformationToViewController();
+            controller.refreshDisplay();
             controller.standByMode();
 
             if (loopIndex == 150)break;
 
             loopIndex++;
         }
+
         controller.turnOffDisplay();
     }
 }

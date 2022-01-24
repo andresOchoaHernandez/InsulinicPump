@@ -12,11 +12,11 @@ public class DeviceData {
     private Integer insulinReservoir;
     private String graphDuration;
     private String deviceStatus;
-    private Float deliveredInsulin;
+    private Integer deliveredInsulin;
 
     protected DeviceData(){}
 
-    public DeviceData(Integer batteryLevel, Integer insulinReservoir, String graphDuration, String deviceStatus, Float deliveredInsulin){
+    public DeviceData(Integer batteryLevel, Integer insulinReservoir, String graphDuration, String deviceStatus, Integer deliveredInsulin){
         this.batteryLevel = batteryLevel;
         this.insulinReservoir = insulinReservoir;
         this.graphDuration = graphDuration;
@@ -24,11 +24,11 @@ public class DeviceData {
         this.deliveredInsulin = deliveredInsulin;
     }
 
-    public Float getDeliveredInsulin() {
+    public Integer getDeliveredInsulin() {
         return deliveredInsulin;
     }
 
-    public void setDeliveredInsulin(Float deliveredInsulin) {
+    public void setDeliveredInsulin(Integer deliveredInsulin) {
         this.deliveredInsulin = deliveredInsulin;
     }
 

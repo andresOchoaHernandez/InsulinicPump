@@ -6,9 +6,7 @@ import com.andreso.insulinicpump.device.hardware.*;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
 public class Controller {
@@ -16,19 +14,18 @@ public class Controller {
     private boolean isFirstTimeStamp = true;
     private Timestamp firstTimeStamp;
 
-    private int r0 = -1;
-    private int r1 = -1;
-    private int r2 = -1;
+    private LinkedList<Integer> readings;
 
     /* data */
+    private int minimumDose;
     private final int safeLowBound;
     private final int safeHighBound;
     private String timeStamp;
     private int currentBloodGlucoseReading;
     private int batteryLevel;
     private int insulinReservoir;
-    private final String deviceStatus;
-    private Float deliveredInsulin;
+    private String deviceStatus;
+    private int deliveredInsulin;
     private int derivative;
 
     /* hardware components */
@@ -55,10 +52,12 @@ public class Controller {
         /* data */
         timeStamp = "";
         currentBloodGlucoseReading = 0;safeLowBound=72;safeHighBound=126;
+        readings = new LinkedList<>();
+        deliveredInsulin=0;derivative=0;minimumDose = 5;deviceStatus = "OK";
         httpRequestHandler.sendSafeBounds(safeLowBound,safeHighBound);
 
         /* mocked data */
-        batteryLevel = 0;insulinReservoir = 0;deviceStatus = "OK";deliveredInsulin=0.0f;derivative=1;
+        batteryLevel = 0;insulinReservoir = 0;deviceStatus = "OK";
     }
 
     public void turnOnDisplay(){
@@ -69,9 +68,9 @@ public class Controller {
         this.display.turnOff();
     }
 
-    public void readGlucoseLevel(){
-        System.out.println("Reading glucose levels ...");
+    public void refreshDisplay(){this.display.refresh();}
 
+    public void readGlucoseLevel(){
         String[] datapoint = bloodSensor.getMeasurement();
         this.timeStamp = datapoint[0];
         this.currentBloodGlucoseReading = Integer.parseInt(datapoint[1]);
@@ -82,16 +81,49 @@ public class Controller {
     }
 
     public void calculateInsulinDose(){
-        System.out.println("Calculating insulin dose to deliver ...");
-        // TODO : implement this function
+
+        // TODO: check if measurements are in the safe range
+
+        if (readings.size()<2){
+            readings.add(currentBloodGlucoseReading);
+        }
+        else if (readings.size() == 2){
+
+            if(currentBloodGlucoseReading < readings.getLast()){
+                deliveredInsulin = 0;
+                derivative = -1;
+            }
+            else if (currentBloodGlucoseReading == readings.getLast()){
+                deliveredInsulin = 0;
+                derivative = 0;
+            }
+            else {
+
+                derivative = 1;
+
+                if((currentBloodGlucoseReading - readings.getLast()) < (readings.getLast() - readings.getFirst())){
+                    deliveredInsulin = 0;
+                }
+                else{
+                    deliveredInsulin = Math.round((currentBloodGlucoseReading - readings.getLast())/4.0f);
+
+                    if (deliveredInsulin == 0) {deliveredInsulin = minimumDose;}
+                }
+            }
+
+            readings.removeFirst();
+            readings.add(currentBloodGlucoseReading);
+        }
     }
 
     public void deliverInsulin(){
-        System.out.println("Delivering insulin ...");
+        boolean insulinDelivered = pump.deliverInsulin();
+        if(!insulinDelivered) deviceStatus = "DEV ERROR";
     }
 
     public void executeDeviceRoutineTest(){
-        System.out.println("Executing self test routine ...");
+
+        // TODO: retrieve device components information like: batteryLevel insulin reservoir level etc...
 
         boolean isSystemWorking =
                 alarm.selfTest() &&
@@ -101,32 +133,24 @@ public class Controller {
                 powerSupply.selfTest() &&
                 pump.selfTest();
 
-        if (!isSystemWorking){
-            //TODO: system needs to alert the user
-            System.out.println("<CONTROLLER> AT LEAST ONE HARDWARE COMPONENT IS NOT PROPERLY WORKING");
+        if (isSystemWorking){
+            deviceStatus = "OK";
+        }
+        else{
+            deviceStatus = "DEV ERROR";
         }
     }
 
     public void sendInformationToViewController(){
-
-        System.out.println("Sending information to server ...");
-
         httpRequestHandler.sendDataPoint(timeStamp, currentBloodGlucoseReading,derivative);
         httpRequestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus,deliveredInsulin);
-
-        /* mocked data */
-        List<Integer> derivatives = new ArrayList<>();
-        derivatives.add(-1);derivatives.add(0);derivatives.add(1);
-        derivative =derivatives.get(new Random().nextInt(derivatives.size()));
-        batteryLevel++;
-        insulinReservoir++;
-        deliveredInsulin++;
     }
 
     public void standByMode() {
+
         System.out.println("Entering stand by mode ...");
         try{
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }
         catch(InterruptedException e){
             e.printStackTrace();

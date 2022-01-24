@@ -18,11 +18,13 @@
 const ctx = document.getElementById('glucoseLevel').getContext('2d');
 
 /* load data from the model */
+
 var fetchedData = [[${data}]];
 var safeLowValue = [[${safeLowValue}]];
 var safeHighValue = [[${safeHighValue}]];
 
 /* graph configuration */
+
 var graphColor ='#d44f00';
 var boxColor = '#555555';
 var lineColor = '#dddddd';
@@ -33,6 +35,8 @@ var options = {
     maintainAspectRatio: false,
     animation:false
 };
+
+/* adding annotations plugin to decorate the graph */
 
 xMaxCurrent = fetchedData.timeStamps.length;
 
@@ -88,6 +92,7 @@ if(xMaxCurrent > 0){
 }
 
 /* plotting the graph */
+
 const myChart = new Chart(ctx,
 {
     type: 'line',

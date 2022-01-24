@@ -28,6 +28,8 @@ public class Display extends DeviceComponent{
         this.driver.get(HOME);
     }
 
+    public void refresh(){ turnOn();}
+
     public void turnOff(){
         this.driver.close();
     }

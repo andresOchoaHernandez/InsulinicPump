@@ -7,5 +7,9 @@ public class Pump extends DeviceComponent{
         return this.isDeviceWorkingProperly;
     }
 
+    public boolean deliverInsulin(){
+        System.out.println("Delivering insulin ...");
+        return true;
+    }
 
 }
