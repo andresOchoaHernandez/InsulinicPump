@@ -15,27 +15,31 @@ public class HttpRequestHandler {
 
     private static final String BASE = "http://localhost:8080";
 
+    private final String[] dataPointParams = {"timeStamp","glucoseLevel","derivative"};
+    private final String[] deviceInformationParams = {"batteryLevel","insulinReservoir","graphDuration","deviceStatus","deliveredInsulin"};
+    private final String[] safeBoundsParams = {"safeLowBound","safeHighBound"};
+
     public void sendDataPoint(String timeStamp, Integer glucoseLevel,int derivative){
-        String[] params = {"timeStamp","glucoseLevel","derivative"};
+
         String[] values = {timeStamp,glucoseLevel.toString(),Integer.toString(derivative)};
 
-        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDataPoint",params,values);
+        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDataPoint",dataPointParams,values);
         if (error) System.out.println(" <data point> ERROR");
     }
 
     public void sendDeviceInformation(Integer batteryLevel,Integer insulinReservoir,String graphDuration,String deviceStatus,Float deliveredInsulin){
-        String[] params = {"batteryLevel","insulinReservoir","graphDuration","deviceStatus","deliveredInsulin"};
+
         String[] values = {batteryLevel.toString(),insulinReservoir.toString(),graphDuration,deviceStatus,Float.toString(deliveredInsulin)};
 
-        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDeviceData",params,values);
+        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDeviceData",deviceInformationParams,values);
         if (error) System.out.println(" <DeviceComponent information> ERROR");
     }
 
     public void sendSafeBounds(int safeLowBound, int safeHighBound){
-        String[] params = {"safeLowBound","safeHighBound"};
+
         String[] values = {Integer.toString(safeLowBound),Integer.toString(safeHighBound)};
 
-        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertBounds",params,values);
+        boolean error = !buildAndSendHttpPostRequest(BASE + "/insertBounds",safeBoundsParams,values);
         if (error) System.out.println(" <safe bounds> ERROR");
     }
 

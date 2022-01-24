@@ -16,11 +16,15 @@ public class Controller {
     private boolean isFirstTimeStamp = true;
     private Timestamp firstTimeStamp;
 
+    private int r0 = -1;
+    private int r1 = -1;
+    private int r2 = -1;
+
     /* data */
     private final int safeLowBound;
     private final int safeHighBound;
     private String timeStamp;
-    private int BG;
+    private int currentBloodGlucoseReading;
     private int batteryLevel;
     private int insulinReservoir;
     private final String deviceStatus;
@@ -49,7 +53,8 @@ public class Controller {
         pump = new Pump();
 
         /* data */
-        timeStamp = "";BG = 0;safeLowBound=72;safeHighBound=126;
+        timeStamp = "";
+        currentBloodGlucoseReading = 0;safeLowBound=72;safeHighBound=126;
         httpRequestHandler.sendSafeBounds(safeLowBound,safeHighBound);
 
         /* mocked data */
@@ -69,7 +74,7 @@ public class Controller {
 
         String[] datapoint = bloodSensor.getMeasurement();
         this.timeStamp = datapoint[0];
-        this.BG = Integer.parseInt(datapoint[1]);
+        this.currentBloodGlucoseReading = Integer.parseInt(datapoint[1]);
 
         if (isFirstTimeStamp)
             this.firstTimeStamp = createTimeStamp(timeStamp);
@@ -78,6 +83,7 @@ public class Controller {
 
     public void calculateInsulinDose(){
         System.out.println("Calculating insulin dose to deliver ...");
+        // TODO : implement this function
     }
 
     public void deliverInsulin(){
@@ -105,7 +111,7 @@ public class Controller {
 
         System.out.println("Sending information to server ...");
 
-        httpRequestHandler.sendDataPoint(timeStamp,BG,derivative);
+        httpRequestHandler.sendDataPoint(timeStamp, currentBloodGlucoseReading,derivative);
         httpRequestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus,deliveredInsulin);
 
         /* mocked data */
