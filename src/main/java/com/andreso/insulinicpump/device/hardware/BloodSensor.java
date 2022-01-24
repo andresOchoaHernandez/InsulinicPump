@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-public class BloodSensor {
+public class BloodSensor  extends DeviceComponent{
     private class DataPoint{
         private final String timeStamp;
         private final String BG;
@@ -73,5 +73,10 @@ public class BloodSensor {
         catch (NoSuchElementException e){
             return null;
         }
+    }
+
+    @Override
+    public boolean selfTest() {
+        return this.isDeviceWorkingProperly;
     }
 }

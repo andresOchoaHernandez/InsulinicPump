@@ -1,6 +1,6 @@
 package com.andreso.insulinicpump.device.pumpcontroller;
 
-import com.andreso.insulinicpump.device.deviceutils.RequestHandler;
+import com.andreso.insulinicpump.device.deviceutils.HttpRequestHandler;
 import com.andreso.insulinicpump.device.hardware.*;
 
 import java.sql.Date;
@@ -28,27 +28,29 @@ public class Controller {
     private int derivative;
 
     /* hardware components */
-    private final DeviceDisplay display;
+    private final Display display;
     private final BloodSensor bloodSensor;
     private final Clock clock;
     private final PowerSupply powerSupply;
     private final Alarm alarm;
+    private final Pump pump;
 
     /* helper class */
-    private final RequestHandler requestHandler;
+    private final HttpRequestHandler httpRequestHandler;
 
 
     public Controller(){
-        display = new DeviceDisplay();
+        display = new Display();
         bloodSensor = new BloodSensor();
         clock = new Clock();
         powerSupply = new PowerSupply();
         alarm = new Alarm();
-        requestHandler = new RequestHandler();
+        httpRequestHandler = new HttpRequestHandler();
+        pump = new Pump();
 
         /* data */
         timeStamp = "";BG = 0;safeLowBound=72;safeHighBound=126;
-        requestHandler.sendSafeBounds(safeLowBound,safeHighBound);
+        httpRequestHandler.sendSafeBounds(safeLowBound,safeHighBound);
 
         /* mocked data */
         batteryLevel = 0;insulinReservoir = 0;deviceStatus = "OK";deliveredInsulin=0.0f;derivative=1;
@@ -84,14 +86,27 @@ public class Controller {
 
     public void executeDeviceRoutineTest(){
         System.out.println("Executing self test routine ...");
+
+        boolean isSystemWorking =
+                alarm.selfTest() &&
+                bloodSensor.selfTest() &&
+                clock.selfTest() &&
+                display.selfTest() &&
+                powerSupply.selfTest() &&
+                pump.selfTest();
+
+        if (!isSystemWorking){
+            //TODO: system needs to alert the user
+            System.out.println("<CONTROLLER> AT LEAST ONE HARDWARE COMPONENT IS NOT PROPERLY WORKING");
+        }
     }
 
     public void sendInformationToViewController(){
 
         System.out.println("Sending information to server ...");
 
-        requestHandler.sendDataPoint(timeStamp,BG,derivative);
-        requestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus,deliveredInsulin);
+        httpRequestHandler.sendDataPoint(timeStamp,BG,derivative);
+        httpRequestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus,deliveredInsulin);
 
         /* mocked data */
         List<Integer> derivatives = new ArrayList<>();
@@ -104,16 +119,12 @@ public class Controller {
 
     public void standByMode() {
         System.out.println("Entering stand by mode ...");
-
-
         try{
             Thread.sleep(500);
         }
         catch(InterruptedException e){
             e.printStackTrace();
         }
-
-
     }
 
     private Timestamp createTimeStamp(String timeStamp){

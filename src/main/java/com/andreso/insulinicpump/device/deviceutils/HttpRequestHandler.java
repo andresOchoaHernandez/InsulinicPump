@@ -11,7 +11,7 @@ import org.apache.http.message.BasicNameValuePair;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RequestHandler {
+public class HttpRequestHandler {
 
     private static final String BASE = "http://localhost:8080";
 
@@ -28,7 +28,7 @@ public class RequestHandler {
         String[] values = {batteryLevel.toString(),insulinReservoir.toString(),graphDuration,deviceStatus,Float.toString(deliveredInsulin)};
 
         boolean error = !buildAndSendHttpPostRequest(BASE + "/insertDeviceData",params,values);
-        if (error) System.out.println(" <device information> ERROR");
+        if (error) System.out.println(" <DeviceComponent information> ERROR");
     }
 
     public void sendSafeBounds(int safeLowBound, int safeHighBound){
