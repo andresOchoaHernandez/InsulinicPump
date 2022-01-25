@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="Added functionalities to Controller">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/deviceutils/ControllerData.java" afterDir="false" />
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="refactored controller creating a class that handles all the controller data">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -391,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643042908274</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="refactored controller creating a class that handles all the controller data">
+      <created>1643110700618</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1643110700618</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -424,6 +431,7 @@
     <MESSAGE value="added abstract class that generalizes a device component" />
     <MESSAGE value="refactored controller's helper class and started implementation of controller's function: calculateInsulinDose" />
     <MESSAGE value="Added functionalities to Controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functionalities to Controller" />
+    <MESSAGE value="refactored controller creating a class that handles all the controller data" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored controller creating a class that handles all the controller data" />
   </component>
 </project>

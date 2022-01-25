@@ -12,10 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Controller {
 
-    /* Data */
     private final ControllerData controllerData;
 
-    /* hardware components */
     private final Display display;
     private final BloodSensor bloodSensor;
     private final Clock clock;
@@ -23,19 +21,19 @@ public class Controller {
     private final Alarm alarm;
     private final Pump pump;
 
-    /* helper class */
     private final HttpRequestHandler httpRequestHandler;
 
     public Controller(){
+        controllerData = new ControllerData();
+
         display = new Display();
         bloodSensor = new BloodSensor();
         clock = new Clock();
         powerSupply = new PowerSupply();
         alarm = new Alarm();
-        httpRequestHandler = new HttpRequestHandler();
         pump = new Pump();
 
-        controllerData = new ControllerData();
+        httpRequestHandler = new HttpRequestHandler();
     }
 
     public void turnOnDisplay(){
