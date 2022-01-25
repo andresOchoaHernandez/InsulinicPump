@@ -9,7 +9,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/PowerSupply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/PowerSupply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/BloodSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/BloodSensor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/Clock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/Clock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/CGMData/data.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/CGMData/data.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,12 +123,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BloodSensor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.andreso.insulinicpump.device.hardware.BloodSensor" />
+    <configuration name="Clock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.andreso.insulinicpump.device.hardware.Clock" />
       <module name="InsulinPump.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.andreso.insulinicpump.view.model.*" />
+          <option name="PATTERN" value="com.andreso.insulinicpump.device.hardware.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -202,10 +205,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.InsulinicPump [bootRun]" />
+        <item itemvalue="Application.Clock" />
         <item itemvalue="Gradle.InsulinicPump [build]" />
         <item itemvalue="Application.Controller" />
         <item itemvalue="Application.Application" />
-        <item itemvalue="Application.BloodSensor" />
       </list>
     </recent_temporary>
   </component>
@@ -407,7 +410,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643110903761</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="little refactoring">
+      <created>1643127270226</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1643127270226</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -47,9 +47,8 @@ public class Controller {
     public void refreshDisplay(){this.display.refresh();}
 
     public void readGlucoseLevel(){
-        String[] datapoint = bloodSensor.getMeasurement();
-        controllerData.setTimeStamp(datapoint[0]);
-        controllerData.setCurrentBloodGlucoseReading(Integer.parseInt(datapoint[1]));
+        controllerData.setTimeStamp(clock.getCurrentTimeStamp());
+        controllerData.setCurrentBloodGlucoseReading(bloodSensor.getMeasurement());
 
         if (controllerData.isFirstTimeStamp())
             controllerData.setFirstTimeStamp(createTimeStamp(controllerData.getTimeStamp()));
