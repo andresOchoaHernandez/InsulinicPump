@@ -1,5 +1,6 @@
 package com.andreso.insulinicpump.device.pumpcontroller;
 
+import com.andreso.insulinicpump.device.deviceutils.ControllerData;
 import com.andreso.insulinicpump.device.deviceutils.HttpRequestHandler;
 import com.andreso.insulinicpump.device.hardware.*;
 
@@ -11,22 +12,8 @@ import java.util.concurrent.TimeUnit;
 
 public class Controller {
 
-    private boolean isFirstTimeStamp = true;
-    private Timestamp firstTimeStamp;
-
-    private LinkedList<Integer> readings;
-
-    /* data */
-    private int minimumDose;
-    private final int safeLowBound;
-    private final int safeHighBound;
-    private String timeStamp;
-    private int currentBloodGlucoseReading;
-    private int batteryLevel;
-    private int insulinReservoir;
-    private String deviceStatus;
-    private int deliveredInsulin;
-    private int derivative;
+    /* Data */
+    private final ControllerData controllerData;
 
     /* hardware components */
     private final Display display;
@@ -39,7 +26,6 @@ public class Controller {
     /* helper class */
     private final HttpRequestHandler httpRequestHandler;
 
-
     public Controller(){
         display = new Display();
         bloodSensor = new BloodSensor();
@@ -49,15 +35,7 @@ public class Controller {
         httpRequestHandler = new HttpRequestHandler();
         pump = new Pump();
 
-        /* data */
-        timeStamp = "";
-        currentBloodGlucoseReading = 0;safeLowBound=72;safeHighBound=126;
-        readings = new LinkedList<>();
-        deliveredInsulin=0;derivative=0;minimumDose = 5;deviceStatus = "OK";
-        httpRequestHandler.sendSafeBounds(safeLowBound,safeHighBound);
-
-        /* mocked data */
-        batteryLevel = 0;insulinReservoir = 0;deviceStatus = "OK";
+        controllerData = new ControllerData();
     }
 
     public void turnOnDisplay(){
@@ -72,42 +50,47 @@ public class Controller {
 
     public void readGlucoseLevel(){
         String[] datapoint = bloodSensor.getMeasurement();
-        this.timeStamp = datapoint[0];
-        this.currentBloodGlucoseReading = Integer.parseInt(datapoint[1]);
+        controllerData.setTimeStamp(datapoint[0]);
+        controllerData.setCurrentBloodGlucoseReading(Integer.parseInt(datapoint[1]));
 
-        if (isFirstTimeStamp)
-            this.firstTimeStamp = createTimeStamp(timeStamp);
-        isFirstTimeStamp = false;
+        if (controllerData.isFirstTimeStamp())
+            controllerData.setFirstTimeStamp(createTimeStamp(controllerData.getTimeStamp()));
+        controllerData.setFirstTimeStamp(false);
     }
 
     public void calculateInsulinDose(){
 
         // TODO: check if measurements are in the safe range
 
-        if (readings.size()<2){
+        LinkedList<Integer> readings = controllerData.getReadings();
+        int readingsSize = readings.size();
+        int currentBloodGlucoseReading = controllerData.getCurrentBloodGlucoseReading();
+
+
+        if (readingsSize<2){
             readings.add(currentBloodGlucoseReading);
         }
-        else if (readings.size() == 2){
+        else if (readingsSize == 2){
 
             if(currentBloodGlucoseReading < readings.getLast()){
-                deliveredInsulin = 0;
-                derivative = -1;
+                controllerData.setDeliveredInsulin(0);
+                controllerData.setDerivative(-1);
             }
             else if (currentBloodGlucoseReading == readings.getLast()){
-                deliveredInsulin = 0;
-                derivative = 0;
+                controllerData.setDeliveredInsulin(0);
+                controllerData.setDerivative(0);
             }
             else {
 
-                derivative = 1;
+                controllerData.setDerivative(1);
 
-                if((currentBloodGlucoseReading - readings.getLast()) < (readings.getLast() - readings.getFirst())){
-                    deliveredInsulin = 0;
+                if((currentBloodGlucoseReading  - readings.getLast()) < (readings.getLast() - readings.getFirst())){
+                    controllerData.setDeliveredInsulin(0);
                 }
                 else{
-                    deliveredInsulin = Math.round((currentBloodGlucoseReading - readings.getLast())/4.0f);
+                    controllerData.setDeliveredInsulin(Math.round((currentBloodGlucoseReading - readings.getLast())/4.0f));
 
-                    if (deliveredInsulin == 0) {deliveredInsulin = minimumDose;}
+                    if (controllerData.getDeliveredInsulin() == 0) {controllerData.setDeliveredInsulin(controllerData.getMinimumDose());}
                 }
             }
 
@@ -118,7 +101,7 @@ public class Controller {
 
     public void deliverInsulin(){
         boolean insulinDelivered = pump.deliverInsulin();
-        if(!insulinDelivered) deviceStatus = "DEV ERROR";
+        if(!insulinDelivered) controllerData.setDeviceStatus("DEV ERROR");
     }
 
     public void executeDeviceRoutineTest(){
@@ -134,16 +117,28 @@ public class Controller {
                 pump.selfTest();
 
         if (isSystemWorking){
-            deviceStatus = "OK";
+            controllerData.setDeviceStatus("OK");
         }
         else{
-            deviceStatus = "DEV ERROR";
+            controllerData.setDeviceStatus("DEV ERROR");
         }
     }
 
     public void sendInformationToViewController(){
-        httpRequestHandler.sendDataPoint(timeStamp, currentBloodGlucoseReading,derivative);
-        httpRequestHandler.sendDeviceInformation(batteryLevel,insulinReservoir,calculateGraphDuration(timeStamp),deviceStatus,deliveredInsulin);
+        controllerData.setGraphDuration(calculateGraphDuration(controllerData.getTimeStamp()));
+
+        httpRequestHandler.sendSafeBounds(controllerData.getSafeLowBound(),
+                                          controllerData.getSafeHighBound());
+
+        httpRequestHandler.sendDataPoint(controllerData.getTimeStamp(),
+                                         controllerData.getCurrentBloodGlucoseReading(),
+                                         controllerData.getDerivative());
+
+        httpRequestHandler.sendDeviceInformation(controllerData.getBatteryLevel(),
+                                                 controllerData.getInsulinReservoir(),
+                                                 controllerData.getGraphDuration(),
+                                                 controllerData.getDeviceStatus(),
+                                                 controllerData.getDeliveredInsulin());
     }
 
     public void standByMode() {
@@ -171,7 +166,7 @@ public class Controller {
     private String calculateGraphDuration(String timestamp){
         Timestamp currentTimeStamp = createTimeStamp(timestamp);
 
-        long difference = currentTimeStamp.getTime() - firstTimeStamp.getTime();
+        long difference = currentTimeStamp.getTime() - controllerData.getFirstTimeStamp().getTime();
         int hours = (int) TimeUnit.MILLISECONDS.toHours(difference);
 
         return hours + " h";
