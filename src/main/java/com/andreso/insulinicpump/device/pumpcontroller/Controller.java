@@ -97,13 +97,11 @@ public class Controller {
     }
 
     public void deliverInsulin(){
-        boolean insulinDelivered = pump.deliverInsulin();
+        boolean insulinDelivered = pump.deliverInsulin(controllerData.getDeliveredInsulin());
         if(!insulinDelivered) controllerData.setDeviceStatus("DEV ERROR");
     }
 
     public void executeDeviceRoutineTest(){
-
-        // TODO: retrieve device components information like: batteryLevel insulin reservoir level etc...
 
         boolean isSystemWorking =
                 alarm.selfTest() &&
@@ -122,7 +120,10 @@ public class Controller {
     }
 
     public void sendInformationToViewController(){
+
+        controllerData.setBatteryLevel(powerSupply.getBatteryLevel());
         controllerData.setGraphDuration(calculateGraphDuration(controllerData.getTimeStamp()));
+        controllerData.setInsulinReservoir(pump.getInsulinReservoirLevel());
 
         httpRequestHandler.sendSafeBounds(controllerData.getSafeLowBound(),
                                           controllerData.getSafeHighBound());
@@ -139,10 +140,9 @@ public class Controller {
     }
 
     public void standByMode() {
-
-        System.out.println("Entering stand by mode ...");
+        System.out.println(" [Controller]  Entering StandBy mode ...");
         try{
-            Thread.sleep(1000);
+            Thread.sleep(50);
         }
         catch(InterruptedException e){
             e.printStackTrace();

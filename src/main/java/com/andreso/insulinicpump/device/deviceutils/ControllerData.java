@@ -41,8 +41,11 @@ public class ControllerData {
         graphDuration = "";
 
         deliveredInsulin=0;
-        minimumDose = 5;
+
+        minimumDose = 1;
     }
+
+    /* Getters and Setters */
 
     public LinkedList<Integer> getReadings(){
         return this.readings;

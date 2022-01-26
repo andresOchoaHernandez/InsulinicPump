@@ -1,5 +1,4 @@
 package com.andreso.insulinicpump.device;
-
 import com.andreso.insulinicpump.device.pumpcontroller.Controller;
 
 public class MainControlLoop implements Runnable{
@@ -12,24 +11,27 @@ public class MainControlLoop implements Runnable{
 
     @Override
     public void run() {
-        int loopIndex = 1 ;
 
+        controller.executeDeviceRoutineTest();
         controller.turnOnDisplay();
 
         while(true){
-            controller.readGlucoseLevel();
+
+            try{
+                controller.readGlucoseLevel();
+            }
+            catch(Exception e ){
+                // read all CGM mock data from blood sensor
+                break;
+            }
+
             controller.calculateInsulinDose();
             controller.deliverInsulin();
             controller.executeDeviceRoutineTest();
             controller.sendInformationToViewController();
             controller.refreshDisplay();
             controller.standByMode();
-
-            if (loopIndex == 150)break;
-
-            loopIndex++;
         }
-
         controller.turnOffDisplay();
     }
 }

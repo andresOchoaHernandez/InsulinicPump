@@ -2,13 +2,16 @@ package com.andreso.insulinicpump.device.hardware;
 
 public class PowerSupply extends DeviceComponent{
 
-    private int batteryLevel;
+    private Float batteryLevel = 100f;
 
-    public PowerSupply(){
-        batteryLevel = 100;
+    private Float readBatteryLevelFromDriver(){
+        batteryLevel -= 0.1f;
+        return batteryLevel;
     }
 
-
+    public int getBatteryLevel(){
+        return Math.round(readBatteryLevelFromDriver());
+    }
 
     @Override
     public boolean selfTest() {
