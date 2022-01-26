@@ -45,8 +45,6 @@ public class ControllerData {
         minimumDose = 1;
     }
 
-    /* Getters and Setters */
-
     public LinkedList<Integer> getReadings(){
         return this.readings;
     }
@@ -71,9 +69,13 @@ public class ControllerData {
         return safeLowBound;
     }
 
+    public void setSafeLowBound(int safeLowBound){this.safeLowBound = safeLowBound;}
+
     public int getSafeHighBound() {
         return safeHighBound;
     }
+
+    public void setSafeHighBound(int safeHighBound){this.safeHighBound = safeHighBound;}
 
     public String getTimeStamp() {
         return timeStamp;
@@ -141,5 +143,9 @@ public class ControllerData {
 
     public int getMinimumDose() {
         return minimumDose;
+    }
+
+    public void setMinimumDose(int minimumDose){
+        this.minimumDose = minimumDose;
     }
 }

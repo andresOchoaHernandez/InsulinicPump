@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="added exit point">
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="changed chromedriver logging to get rid of annoying messages">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/integration/IntegrationTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/ControllerDataTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/deviceutils/ControllerData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/deviceutils/ControllerData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/AcceptanceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/AcceptanceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/UnitTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +57,12 @@
                 <item name="InsulinPump" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
                 <item name="build" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="InsulinPump" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="verification" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -92,6 +108,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/test/resources" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -103,73 +120,13 @@
       <recent name="C:\Users\adawo\IdeaProjects\InsulinicPump\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.InsulinicPump [bootRun]">
-    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.andreso.insulinicpump.Application" />
-      <module name="InsulinPump.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.andreso.insulinicpump.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Clock" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.andreso.insulinicpump.device.hardware.Clock" />
-      <module name="InsulinPump.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.andreso.insulinicpump.device.hardware.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Controller" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.andreso.insulinicpump.devicecontroller.Controller" />
-      <module name="InsulinPump.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.andreso.insulinicpump.devicecontroller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="InsulinicPump [bootRun]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="bootRun" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Gradle.InsulinicPump [test]">
     <configuration name="InsulinicPump [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -185,6 +142,73 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="InsulinicPump [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="AcceptanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InsulinPump.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.andres.insulinicpump.acceptance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.andres.insulinicpump.acceptance" />
+      <option name="MAIN_CLASS_NAME" value="com.andres.insulinicpump.acceptance.AcceptanceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AcceptanceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InsulinPump.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.andres.insulinicpump.acceptance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.andres.insulinicpump.acceptance" />
+      <option name="MAIN_CLASS_NAME" value="com.andres.insulinicpump.acceptance.AcceptanceTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ControllerDataTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InsulinPump.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.andres.insulinicpump.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.andres.insulinicpump.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.andres.insulinicpump.unit.ControllerDataTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -198,11 +222,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.InsulinicPump [bootRun]" />
-        <item itemvalue="Application.Clock" />
+        <item itemvalue="Gradle.InsulinicPump [test]" />
         <item itemvalue="Gradle.InsulinicPump [build]" />
-        <item itemvalue="Application.Controller" />
-        <item itemvalue="Application.Application" />
+        <item itemvalue="JUnit.ControllerDataTest" />
+        <item itemvalue="JUnit.AcceptanceTest.test" />
+        <item itemvalue="JUnit.AcceptanceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -425,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643202274500</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="changed chromedriver logging to get rid of annoying messages">
+      <created>1643203378623</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1643203378624</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -463,6 +494,7 @@
     <MESSAGE value="changed Blood sensor and clock implementing separation between the measurements coming from the sensor and the timeStamps coming from Clock class" />
     <MESSAGE value="mocked powersupply and pump data" />
     <MESSAGE value="added exit point" />
-    <option name="LAST_COMMIT_MESSAGE" value="added exit point" />
+    <MESSAGE value="changed chromedriver logging to get rid of annoying messages" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed chromedriver logging to get rid of annoying messages" />
   </component>
 </project>
