@@ -33,5 +33,7 @@ public class MainControlLoop implements Runnable{
             controller.standByMode();
         }
         controller.turnOffDisplay();
+
+        System.exit(0);
     }
 }
