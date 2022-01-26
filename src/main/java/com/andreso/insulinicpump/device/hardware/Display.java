@@ -16,6 +16,7 @@ public class Display extends DeviceComponent{
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1600,695");
         System.setProperty("webdriver.chrome.driver", Paths.get("./src/main/resources/chromedriver_win32_96/chromedriver.exe").toString());
+        System.setProperty("webdriver.chrome.silentOutput", "true");
         this.driver = new ChromeDriver(options);
     }
 

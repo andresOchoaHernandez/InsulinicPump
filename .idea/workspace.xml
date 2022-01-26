@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="mocked powersupply and pump data">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="added exit point">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/MainControlLoop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/MainControlLoop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/hardware/Display.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -421,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643202118921</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="added exit point">
+      <created>1643202274500</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1643202274500</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -458,6 +462,7 @@
     <MESSAGE value="little refactoring" />
     <MESSAGE value="changed Blood sensor and clock implementing separation between the measurements coming from the sensor and the timeStamps coming from Clock class" />
     <MESSAGE value="mocked powersupply and pump data" />
-    <option name="LAST_COMMIT_MESSAGE" value="mocked powersupply and pump data" />
+    <MESSAGE value="added exit point" />
+    <option name="LAST_COMMIT_MESSAGE" value="added exit point" />
   </component>
 </project>
