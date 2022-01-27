@@ -1,6 +1,6 @@
 package com.andres.insulinicpump.unit;
 
-import com.andreso.insulinicpump.device.deviceutils.ControllerData;
+import com.andreso.insulinicpump.device.pumpcontroller.ControllerData;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

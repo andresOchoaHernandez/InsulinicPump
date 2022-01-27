@@ -1,7 +1,5 @@
 package com.andreso.insulinicpump.device.pumpcontroller;
 
-import com.andreso.insulinicpump.device.deviceutils.ControllerData;
-import com.andreso.insulinicpump.device.deviceutils.HttpRequestHandler;
 import com.andreso.insulinicpump.device.hardware.*;
 
 import java.sql.Date;

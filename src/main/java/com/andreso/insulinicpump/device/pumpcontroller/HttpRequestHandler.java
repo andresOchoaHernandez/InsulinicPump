@@ -1,4 +1,4 @@
-package com.andreso.insulinicpump.device.deviceutils;
+package com.andreso.insulinicpump.device.pumpcontroller;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;

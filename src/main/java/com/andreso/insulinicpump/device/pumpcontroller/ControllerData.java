@@ -1,6 +1,8 @@
-package com.andreso.insulinicpump.device.deviceutils;
+package com.andreso.insulinicpump.device.pumpcontroller;
 
 import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 public class ControllerData {
@@ -82,6 +84,7 @@ public class ControllerData {
     }
 
     public void setTimeStamp(String timeStamp) {
+
         this.timeStamp = timeStamp;
     }
 
