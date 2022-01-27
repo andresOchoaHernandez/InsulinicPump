@@ -110,6 +110,68 @@ const myChart = new Chart(ctx,
 }
 );
 </script>
+<div id ="alertDiv">
+</div>
+<script th:inline="javascript">
+
+    var alertDivContainer = document.getElementById('alertDiv');
+
+    if([[${batteryLevel}]] <= 20 ){
+        var alertText = document.createElement('p');
+        alertText.innerHTML = '⚠ battery is low ';
+
+        var batteryDiv = document.createElement('div');
+        batteryDiv.className = 'alertBlock';
+
+        batteryDiv.appendChild(alertText);
+
+        alertDivContainer.appendChild(batteryDiv);
+    }
+
+    if([[${insulinReservoir}]] <= 20 ){
+        var alertText = document.createElement('p');
+        alertText.innerHTML = '⚠ insulin reservoir is low ';
+
+        var batteryDiv = document.createElement('div');
+        batteryDiv.className = 'alertBlock';
+
+        batteryDiv.appendChild(alertText);
+
+        alertDivContainer.appendChild(batteryDiv);
+    }
+
+    if([[${deviceStatus}]] == 'DEV ERROR' ){
+        var alertText = document.createElement('p');
+        alertText.innerHTML = '⚠ device is not working properly ';
+
+        var batteryDiv = document.createElement('div');
+        batteryDiv.className = 'alertBlock';
+
+        batteryDiv.appendChild(alertText);
+
+        alertDivContainer.appendChild(batteryDiv);
+    }
+
+    if([[${lastBloodGlucoseRead}]] > [[${safeHighValue}]] ){
+        var alertText = document.createElement('p');
+        alertText.innerHTML = '⚠ high blood glucose level detected ';
+
+        var batteryDiv = document.createElement('div');
+        batteryDiv.className = 'alertBlock';
+
+        batteryDiv.appendChild(alertText);
+
+        alertDivContainer.appendChild(batteryDiv);
+    }
+
+
+    var blink_speed = 500;
+    var t = setInterval(function () {
+        var ele = document.getElementById('alertDiv');
+        ele.style.visibility = (ele.style.visibility == 'hidden' ? '' : 'hidden');
+    }, blink_speed);
+</script>
+
 <h1 id="battery">Battery level : </h1> <h1 id="bData" th:text="${batteryLevel}!=null?${batteryLevel}+'%':'N/R'"></h1>
 
 <h1 id="insulinReservoir">Insulin reservoir : </h1> <h1 id="iData" th:text="${insulinReservoir}!=null?${insulinReservoir}+'%':'N/R'"></h1>

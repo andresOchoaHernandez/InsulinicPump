@@ -107,6 +107,18 @@ canvas#glucoseLevel{
     border: 1px solid #1b1b1b;
 }
 
+div#alertDiv{
+    position: absolute;
+    left:300px;
+    top:5px;
+    text-align:center;
+}
+
+.alertBlock{
+    width: 300px;
+    display: inline-block;
+}
+
 h1#battery{
   position: absolute;
   left: 1020px;
