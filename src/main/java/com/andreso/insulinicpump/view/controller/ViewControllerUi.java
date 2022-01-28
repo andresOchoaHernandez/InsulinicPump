@@ -66,4 +66,9 @@ public class ViewControllerUi {
 
         return parsedDataset;
     }
+
+    @RequestMapping("/bolus")
+    public String bolus(){
+        return "bolus";
+    }
 }

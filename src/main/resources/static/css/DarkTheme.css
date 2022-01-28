@@ -107,6 +107,107 @@ canvas#glucoseLevel{
     border: 1px solid #1b1b1b;
 }
 
+/* ======================================================================== */
+
+h1#bolus{
+  text-align: center;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+}
+
+.container{
+  margin: auto;
+  width: 25%;
+  padding: 10px;
+  border: 1px solid #1b1b1b;
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+     -moz-box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+          box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
+  background-color: #fff;
+  height: 377px;
+  background-color: #2b2b2b;
+}
+
+.result{
+  font-size: 22px;
+  padding: 22px 5px;
+  font-weight: 700;
+  text-align: right;
+  width: 100%;
+  background-color: #aaaaaa;
+}
+
+.second-row,
+.third-row,
+.fourth-row,
+.conflict
+{
+  display: inline-block;
+  width: 379.5px;
+}
+.global{
+ padding: 15px;
+ font-weight: bold;
+ font-size: 16px;
+ border: none;
+ border-radius: 3px;
+ background-color: #aaaaaa;
+ float: left;
+ width: 31.5%;
+ margin: 0 2px;
+}
+.conflict .left,
+.conflict .right{
+  float: left;
+  position: relative;
+}
+.left{
+  width: 100%;
+}
+.big{
+  padding: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  background-color: #aaaaaa;
+  float: left;
+  width: 64.5%;
+  margin: 0 2px;
+}
+.small{
+  padding: 15px;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  background-color: #aaaaaa;
+  float: left;
+  width: 31.5%;
+  margin: 0 2px;
+}
+.plus{
+  height: 105px;
+  width: 100%;
+}
+.green{
+  background-color: #81C784;
+}
+.red{
+  background-color: #F50258
+}
+.grey{
+  background-color: #F2F2F2;
+}
+.white-text{
+  color: #fff;
+}
+.top-margin{
+  margin-top: 4px;
+}
+
+/* ======================================================================== */
+
 div#alertDiv{
     position: absolute;
     left:300px;

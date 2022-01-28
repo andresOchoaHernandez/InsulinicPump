@@ -4,8 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="refactored javascript alert warnings">
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bolus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/view/controller/ViewControllerUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/view/controller/ViewControllerUi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/DarkTheme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/DarkTheme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,9 +71,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -479,7 +487,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643365087314</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary=".">
+      <created>1643369186825</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1643369186825</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -501,7 +516,6 @@
     <MESSAGE value="Refactored Controller" />
     <MESSAGE value="refactored javascript in chart.html" />
     <MESSAGE value="wired safe and high bounds to the controller" />
-    <MESSAGE value="." />
     <MESSAGE value="refactored package structure in order to better separate the device components from the view ones" />
     <MESSAGE value="run a code clean up" />
     <MESSAGE value="renamed ViewController" />
@@ -519,6 +533,7 @@
     <MESSAGE value="refactored helper classes" />
     <MESSAGE value="added warnings to UI" />
     <MESSAGE value="refactored javascript alert warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored javascript alert warnings" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

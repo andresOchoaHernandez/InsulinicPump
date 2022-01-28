@@ -165,6 +165,9 @@ const myChart = new Chart(ctx,
 
 <h1 id="insulinUnits"> Insulin delivered: </h1> <h1 id="diData" th:text = "${deliveredInsulin}!=null?${deliveredInsulin}+' units':'N/R'"></h1>
 
-<button class="button-77" role="button">BOLUS</button>
+<form action="bolus" method="post">
+    <button class="button-77" role="button">BOLUS</button>
+</form>
+
 </body>
 </html>
