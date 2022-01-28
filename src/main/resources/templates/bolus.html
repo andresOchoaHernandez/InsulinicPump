@@ -6,34 +6,34 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/DarkTheme.css}"/>
 </head>
 <body>
-<h1 id="bolus">Bolus: insert grams of carbohydrates</h1>
-<div class="container">
-    <input type="text" class="result">
+<h1 id="bolus" style="text-align:center">Bolus: insert grams of carbohydrates</h1>
+<div style="height:50px"></div>
+<div style="text-align:center">
+    <input type="text" class="inputBar" disabled>
     <div style="height:10px"></div>
-    <div class="second-row">
-        <input type="button" name="" value="7" class="global">
-        <input type="button" name="" value="8" class="global">
-        <input type="button" name="" value="9" class="global">
+    <div>
+        <input type="button" name="" value="7" class="carbsButtons">
+        <input type="button" name="" value="8" class="carbsButtons">
+        <input type="button" name="" value="9" class="carbsButtons">
     </div>
-    <div class="third-row">
-        <input type="button" name="" value="4" class="global">
-        <input type="button" name="" value="5" class="global">
-        <input type="button" name="" value="6" class="global">
+    <div>
+        <input type="button" name="" value="4" class="carbsButtons">
+        <input type="button" name="" value="5" class="carbsButtons">
+        <input type="button" name="" value="6" class="carbsButtons">
     </div>
-    <div class="fourth-row">
-        <input type="button" name="" value="1" class="global">
-        <input type="button" name="" value="2" class="global">
-        <input type="button" name="" value="3" class="global">
+    <div>
+        <input type="button" name="" value="1" class="carbsButtons">
+        <input type="button" name="" value="2" class="carbsButtons">
+        <input type="button" name="" value="3" class="carbsButtons">
     </div>
-    <div class="conflict">
-        <div class="left">
-            <input type="button" name="" value="0" class=" big">
-            <input type="button" name="" value="." class=" small">
-            <input type="button" name="" value="Del" class=" red small white-text top-margin">
-            <input type="button" name="" value="🗸" class=" green white-text big top-margin">
-        </div>
+    <div>
+        <input type="button" name="" value="⌦" class="carbsButtons">
+        <input type="button" name="" value="0" class="carbsButtons">
+        <input type="button" name="" value="🗸" class="carbsButtons">
     </div>
 </div>
-
+<div>
+    <button class="deliverButton" role="button">DELIVER</button>
+</div>
 </body>
 </html>
