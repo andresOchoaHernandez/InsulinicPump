@@ -119,7 +119,7 @@ h1#bolus{
   margin: auto;
   width: 25%;
   padding: 10px;
-  border: 1px solid #1b1b1b;
+  border: 0.5px solid #1b1b1b;
   -webkit-box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
      -moz-box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
           box-shadow: 1px 1px 4px 0px rgba(176,176,176,1);
@@ -143,7 +143,7 @@ h1#bolus{
 .conflict
 {
   display: inline-block;
-  width: 379.5px;
+  width: 100%;
 }
 .global{
  padding: 15px;

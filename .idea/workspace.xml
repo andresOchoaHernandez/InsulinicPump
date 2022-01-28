@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment=".">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/bolus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="started working on bolus ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/view/controller/ViewControllerUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/view/controller/ViewControllerUi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/DarkTheme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/DarkTheme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bolus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bolus.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -494,7 +488,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643369186825</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="started working on bolus ui">
+      <created>1643374795780</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1643374795780</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -509,7 +510,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added the possibility to send/receive and display the information of the device" />
     <MESSAGE value="fixed issue on the UI when the controller hasn't delivered data to the server" />
     <MESSAGE value="Added data from a public dataset to simulate continues blood glucose monitoring" />
     <MESSAGE value="Merged branches" />
@@ -534,6 +534,7 @@
     <MESSAGE value="added warnings to UI" />
     <MESSAGE value="refactored javascript alert warnings" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value="started working on bolus ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="started working on bolus ui" />
   </component>
 </project>
