@@ -140,7 +140,7 @@ public class Controller {
     public void standByMode() {
         System.out.println(" [Controller]  Entering StandBy mode ...");
         try{
-            Thread.sleep(2500);
+            Thread.sleep(5000);
         }
         catch(InterruptedException e){
             e.printStackTrace();

@@ -116,52 +116,33 @@ const myChart = new Chart(ctx,
 
     var alertDivContainer = document.getElementById('alertDiv');
 
-    if([[${batteryLevel}]] <= 20 ){
-        var alertText = document.createElement('p');
-        alertText.innerHTML = '⚠ battery is low ';
-
-        var batteryDiv = document.createElement('div');
-        batteryDiv.className = 'alertBlock';
-
-        batteryDiv.appendChild(alertText);
-
-        alertDivContainer.appendChild(batteryDiv);
+    if([[${batteryLevel}]]!= null && [[${batteryLevel}]] <= 20 ){
+        createDiv('⚠ battery is low ');
     }
 
-    if([[${insulinReservoir}]] <= 20 ){
-        var alertText = document.createElement('p');
-        alertText.innerHTML = '⚠ insulin reservoir is low ';
-
-        var batteryDiv = document.createElement('div');
-        batteryDiv.className = 'alertBlock';
-
-        batteryDiv.appendChild(alertText);
-
-        alertDivContainer.appendChild(batteryDiv);
+    if([[${insulinReservoir}]]!= null && [[${insulinReservoir}]] <= 20 ){
+        createDiv('⚠ insulin reservoir is low ');
     }
 
     if([[${deviceStatus}]] == 'DEV ERROR' ){
-        var alertText = document.createElement('p');
-        alertText.innerHTML = '⚠ device is not working properly ';
-
-        var batteryDiv = document.createElement('div');
-        batteryDiv.className = 'alertBlock';
-
-        batteryDiv.appendChild(alertText);
-
-        alertDivContainer.appendChild(batteryDiv);
+        createDiv('⚠ device is not working properly ');
     }
 
     if([[${lastBloodGlucoseRead}]] > [[${safeHighValue}]] ){
+        createDiv('⚠ high blood glucose level detected ');
+    }
+
+    if([[${lastBloodGlucoseRead}]] < [[${safeLowValue}]] ){
+        createDiv('⚠ Low blood glucose level detected ');
+    }
+
+    function createDiv(alertMessage){
         var alertText = document.createElement('p');
-        alertText.innerHTML = '⚠ high blood glucose level detected ';
-
-        var batteryDiv = document.createElement('div');
-        batteryDiv.className = 'alertBlock';
-
-        batteryDiv.appendChild(alertText);
-
-        alertDivContainer.appendChild(batteryDiv);
+        alertText.innerHTML = alertMessage;
+        var sectionDiv = document.createElement('div');
+        sectionDiv.className = 'alertBlock';
+        sectionDiv.appendChild(alertText);
+        alertDivContainer.appendChild(sectionDiv);
     }
 
 
