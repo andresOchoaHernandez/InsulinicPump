@@ -147,6 +147,10 @@ public class Controller {
         }
     }
 
+    private void forceExit(){
+        System.exit(0);
+    }
+
     private Timestamp createTimeStamp(String timeStamp){
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
