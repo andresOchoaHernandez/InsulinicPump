@@ -32,76 +32,85 @@
         <input type="button" name="" value="🗸" class="carbsButtons" onclick="confirm()">
     </div>
 </div>
-<div>
-    <button class="deliverButton" role="button">DELIVER</button>
+<div id="dButton">
 </div>
 <script th:inline="javascript">
 
     var inputTextField = document.getElementById("gCarbs");
     var gramsOfCarbs = "";
 
+    function sendInputToController(){
+        console.log("I'm here!");
+    }
+
     function cancel(){
         gramsOfCarbs = "";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     }
 
     function confirm(){
         if(gramsOfCarbs != ""){
             gramsOfCarbs = parseInt(gramsOfCarbs);
-            console.log(gramsOfCarbs);
+
+            var buttonDeliver = document.createElement('button');
+            buttonDeliver.className = 'deliverButton';
+            buttonDeliver.role = 'button';
+            buttonDeliver.innerHTML = 'DELIVER';
+            buttonDeliver.onclick = sendInputToController;
+
+            document.getElementById('dButton').appendChild(buttonDeliver);
         }
     };
 
     function pressedZero(){
-        if(gramsOfCarbs == ""){
-            return;
+        if(gramsOfCarbs != ""){
+            gramsOfCarbs = gramsOfCarbs + "0";
+            inputTextField.value = gramsOfCarbs;
         }
-        gramsOfCarbs = gramsOfCarbs + "0";
-        inputTextField.value=gramsOfCarbs;
     };
     function pressedOne(){
         gramsOfCarbs = gramsOfCarbs + "1";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 
     function pressedTwo(){
         gramsOfCarbs = gramsOfCarbs + "2";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 
     function pressedThree(){
         gramsOfCarbs = gramsOfCarbs + "3";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 
     function pressedFour(){
         gramsOfCarbs = gramsOfCarbs + "4";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 
     function pressedFive(){
         gramsOfCarbs = gramsOfCarbs + "5";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 
     function pressedSix(){
         gramsOfCarbs = gramsOfCarbs + "6";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 
     function pressedSeven(){
         gramsOfCarbs = gramsOfCarbs + "7";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 
     function pressedEight(){
         gramsOfCarbs = gramsOfCarbs + "8";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 
     function pressedNine(){
         gramsOfCarbs = gramsOfCarbs + "9";
-        inputTextField.value=gramsOfCarbs;
+        inputTextField.value = gramsOfCarbs;
     };
 </script>
 
