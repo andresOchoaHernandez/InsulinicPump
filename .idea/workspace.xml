@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="finished bolus ui">
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="added javascript to the bolus ui to get the user input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/DarkTheme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/DarkTheme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/bolus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/bolus.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -512,7 +507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643389716188</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="added javascript to the bolus ui to get the user input">
+      <created>1643457161603</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1643457161603</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,7 +529,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Added data from a public dataset to simulate continues blood glucose monitoring" />
     <MESSAGE value="Merged branches" />
     <MESSAGE value="Refactored Controller" />
     <MESSAGE value="refactored javascript in chart.html" />
@@ -552,6 +553,7 @@
     <MESSAGE value="." />
     <MESSAGE value="started working on bolus ui" />
     <MESSAGE value="finished bolus ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished bolus ui" />
+    <MESSAGE value="added javascript to the bolus ui to get the user input" />
+    <option name="LAST_COMMIT_MESSAGE" value="added javascript to the bolus ui to get the user input" />
   </component>
 </project>
