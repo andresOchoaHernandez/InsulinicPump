@@ -196,7 +196,7 @@ h1#diData{
     width: 750px;
     background-color: #2b2b2b;
     border:none;
-    text-align:right;
+    text-align:center;
 }
 *:focus { outline: none; }
 input, select, textarea{

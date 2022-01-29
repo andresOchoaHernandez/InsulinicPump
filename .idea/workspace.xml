@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="started working on bolus ui">
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="finished bolus ui">
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
@@ -75,7 +75,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="blood_sensor_and_clock_separation" />
+    <option name="BRANCH" value="fix_bolus_ui" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -505,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643386268265</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="finished bolus ui">
+      <created>1643389716188</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1643389716188</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -520,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed issue on the UI when the controller hasn't delivered data to the server" />
     <MESSAGE value="Added data from a public dataset to simulate continues blood glucose monitoring" />
     <MESSAGE value="Merged branches" />
     <MESSAGE value="Refactored Controller" />
@@ -545,6 +551,7 @@
     <MESSAGE value="refactored javascript alert warnings" />
     <MESSAGE value="." />
     <MESSAGE value="started working on bolus ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="started working on bolus ui" />
+    <MESSAGE value="finished bolus ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished bolus ui" />
   </component>
 </project>

@@ -9,31 +9,101 @@
 <h1 id="bolus" style="text-align:center">Bolus: insert grams of carbohydrates</h1>
 <div style="height:50px"></div>
 <div style="text-align:center">
-    <input type="text" class="inputBar" disabled>
+    <input type="text" class="inputBar" id="gCarbs" disabled>
     <div style="height:10px"></div>
     <div>
-        <input type="button" name="" value="7" class="carbsButtons">
-        <input type="button" name="" value="8" class="carbsButtons">
-        <input type="button" name="" value="9" class="carbsButtons">
+        <input type="button" name="" value="7" class="carbsButtons" onclick="pressedSeven()">
+        <input type="button" name="" value="8" class="carbsButtons" onclick="pressedEight()">
+        <input type="button" name="" value="9" class="carbsButtons" onclick="pressedNine()">
     </div>
     <div>
-        <input type="button" name="" value="4" class="carbsButtons">
-        <input type="button" name="" value="5" class="carbsButtons">
-        <input type="button" name="" value="6" class="carbsButtons">
+        <input type="button" name="" value="4" class="carbsButtons" onclick="pressedFour()">
+        <input type="button" name="" value="5" class="carbsButtons" onclick="pressedFive()">
+        <input type="button" name="" value="6" class="carbsButtons" onclick="pressedSix()">
     </div>
     <div>
-        <input type="button" name="" value="1" class="carbsButtons">
-        <input type="button" name="" value="2" class="carbsButtons">
-        <input type="button" name="" value="3" class="carbsButtons">
+        <input type="button" name="" value="1" class="carbsButtons" onclick="pressedOne()">
+        <input type="button" name="" value="2" class="carbsButtons" onclick="pressedTwo()">
+        <input type="button" name="" value="3" class="carbsButtons" onclick="pressedThree()">
     </div>
     <div>
-        <input type="button" name="" value="⌦" class="carbsButtons">
-        <input type="button" name="" value="0" class="carbsButtons">
-        <input type="button" name="" value="🗸" class="carbsButtons">
+        <input type="button" name="" value="⌦" class="carbsButtons" onclick="cancel()">
+        <input type="button" name="" value="0" class="carbsButtons" onclick="pressedZero()">
+        <input type="button" name="" value="🗸" class="carbsButtons" onclick="confirm()">
     </div>
 </div>
 <div>
     <button class="deliverButton" role="button">DELIVER</button>
 </div>
+<script th:inline="javascript">
+
+    var inputTextField = document.getElementById("gCarbs");
+    var gramsOfCarbs = "";
+
+    function cancel(){
+        gramsOfCarbs = "";
+        inputTextField.value=gramsOfCarbs;
+    }
+
+    function confirm(){
+        if(gramsOfCarbs != ""){
+            gramsOfCarbs = parseInt(gramsOfCarbs);
+            console.log(gramsOfCarbs);
+        }
+    };
+
+    function pressedZero(){
+        if(gramsOfCarbs == ""){
+            return;
+        }
+        gramsOfCarbs = gramsOfCarbs + "0";
+        inputTextField.value=gramsOfCarbs;
+    };
+    function pressedOne(){
+        gramsOfCarbs = gramsOfCarbs + "1";
+        inputTextField.value=gramsOfCarbs;
+    };
+
+    function pressedTwo(){
+        gramsOfCarbs = gramsOfCarbs + "2";
+        inputTextField.value=gramsOfCarbs;
+    };
+
+    function pressedThree(){
+        gramsOfCarbs = gramsOfCarbs + "3";
+        inputTextField.value=gramsOfCarbs;
+    };
+
+    function pressedFour(){
+        gramsOfCarbs = gramsOfCarbs + "4";
+        inputTextField.value=gramsOfCarbs;
+    };
+
+    function pressedFive(){
+        gramsOfCarbs = gramsOfCarbs + "5";
+        inputTextField.value=gramsOfCarbs;
+    };
+
+    function pressedSix(){
+        gramsOfCarbs = gramsOfCarbs + "6";
+        inputTextField.value=gramsOfCarbs;
+    };
+
+    function pressedSeven(){
+        gramsOfCarbs = gramsOfCarbs + "7";
+        inputTextField.value=gramsOfCarbs;
+    };
+
+    function pressedEight(){
+        gramsOfCarbs = gramsOfCarbs + "8";
+        inputTextField.value=gramsOfCarbs;
+    };
+
+    function pressedNine(){
+        gramsOfCarbs = gramsOfCarbs + "9";
+        inputTextField.value=gramsOfCarbs;
+    };
+</script>
+
 </body>
 </html>
