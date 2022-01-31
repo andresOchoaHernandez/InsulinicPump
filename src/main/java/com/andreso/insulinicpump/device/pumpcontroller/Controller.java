@@ -55,8 +55,6 @@ public class Controller {
 
     public void calculateInsulinDose(){
 
-        // TODO: check if measurements are in the safe range
-
         LinkedList<Integer> readings = controllerData.getReadings();
         int readingsSize = readings.size();
         int currentBloodGlucoseReading = controllerData.getCurrentBloodGlucoseReading();
@@ -72,11 +70,21 @@ public class Controller {
                 controllerData.setDerivative(-1);
             }
             else if (currentBloodGlucoseReading == readings.getLast()){
-                controllerData.setDeliveredInsulin(0);
-                controllerData.setDerivative(0);
+
+                if (controllerData.getSafeLowBound() <= currentBloodGlucoseReading && currentBloodGlucoseReading <= controllerData.getSafeHighBound()){
+                    controllerData.setDeliveredInsulin(0);
+                    controllerData.setDerivative(0);
+                }
+                else if(controllerData.getSafeHighBound()<=currentBloodGlucoseReading ){
+                    controllerData.setDeliveredInsulin(controllerData.getMinimumDose());
+                    controllerData.setDerivative(0);
+                }
+                else{
+                    controllerData.setDeliveredInsulin(0);
+                    controllerData.setDerivative(0);
+                }
             }
             else {
-
                 controllerData.setDerivative(1);
 
                 if((currentBloodGlucoseReading  - readings.getLast()) < (readings.getLast() - readings.getFirst())){
