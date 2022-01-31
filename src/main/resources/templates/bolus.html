@@ -10,7 +10,7 @@
 
 <div style="height:50px"></div>
 
-<div id="gridOfNumbers" style="text-align:center">
+<div style="text-align:center">
 
     <input type="text" class="inputBar" id="gCarbs" disabled>
 
@@ -40,11 +40,17 @@
         <input type="button" name="" value="🗸" class="carbsButtons" onclick="confirm()">
     </div>
 
+    <div style="height:10px"></div>
+
+    <div id="gridOfNumbers" style="padding-left:25%;padding-right:25%;">
+
+    </div>
+
 </div>
 
-<!-- TODO: FIX BUTTON WIDTH-->
-
 <script th:inline="javascript">
+
+    var confirmedPressed = false;
 
     var inputTextField = document.getElementById("gCarbs");
     var gramsOfCarbs = "";
@@ -56,19 +62,26 @@
     function cancel(){
         gramsOfCarbs = "";
         inputTextField.value = gramsOfCarbs;
+
+        if (confirmedPressed){
+            document.getElementById('bDeliver').remove();
+            confirmedPressed = false;
+        }
     }
 
     function confirm(){
-        if(gramsOfCarbs != ""){
+        if(gramsOfCarbs != "" && !confirmedPressed){
             gramsOfCarbs = parseInt(gramsOfCarbs);
 
             var buttonDeliver = document.createElement('button');
+            buttonDeliver.id= 'bDeliver';
             buttonDeliver.className = 'button-77';
             buttonDeliver.role = 'button';
             buttonDeliver.innerHTML = 'DELIVER';
             buttonDeliver.onclick = sendInputToController;
 
             document.getElementById('gridOfNumbers').appendChild(buttonDeliver);
+            confirmedPressed = true;
         }
     };
 
