@@ -169,7 +169,7 @@ const myChart = new Chart(ctx,
             <h1 id="iData" th:text="${insulinReservoir}!=null?${insulinReservoir}+'%':'N/R'"></h1>
             <h1 id="dData" th:text="${deviceStatus}!=null?${deviceStatus}:'N/R'"></h1>
             <h1 id="gData" th:text="${graphDuration}!=null?${graphDuration}:'N/R'"></h1>
-            <h1 id="bgData" th:text = "${lastBloodGlucoseRead}!=null?(${lastBloodGlucoseRead}+(${derivative}==1?'⬈':(${derivative}==-1?'⬊':''))+' mg/dL'):'N/R' "></h1>
+            <h1 id="bgData" th:text = "${lastBloodGlucoseRead}!=null?(${lastBloodGlucoseRead}+(${derivative}==1?'⬈':(${derivative}==-1?'⬊':'➡'))+' mg/dL'):'N/R' "></h1>
             <h1 id="diData" th:text = "${deliveredInsulin}!=null?${deliveredInsulin}+' units':'N/R'"></h1>
         </div>
     </div>

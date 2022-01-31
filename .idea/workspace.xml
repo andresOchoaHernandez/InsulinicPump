@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="refactored chart and bolus ui">
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="ractored controller a litlle bit">
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/device/pumpcontroller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/chart.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -550,7 +553,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643642442274</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="ractored controller a litlle bit">
+      <created>1643643313011</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1643643313011</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -565,7 +575,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactored javascript in chart.html" />
     <MESSAGE value="wired safe and high bounds to the controller" />
     <MESSAGE value="refactored package structure in order to better separate the device components from the view ones" />
     <MESSAGE value="run a code clean up" />
@@ -590,6 +599,7 @@
     <MESSAGE value="added javascript to the bolus ui to get the user input" />
     <MESSAGE value="added skeleton of function to send input to controller" />
     <MESSAGE value="refactored chart and bolus ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored chart and bolus ui" />
+    <MESSAGE value="ractored controller a litlle bit" />
+    <option name="LAST_COMMIT_MESSAGE" value="ractored controller a litlle bit" />
   </component>
 </project>
