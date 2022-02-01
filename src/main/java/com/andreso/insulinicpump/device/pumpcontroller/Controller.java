@@ -107,6 +107,10 @@ public class Controller {
         if(!insulinDelivered) controllerData.setDeviceStatus("DEV ERROR");
     }
 
+    public void bolusInsulinDeliver(int gramsOfCarbs){
+        // TODO
+    }
+
     public void executeDeviceRoutineTest(){
 
         boolean isSystemWorking =
