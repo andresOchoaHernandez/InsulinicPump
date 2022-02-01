@@ -71,7 +71,6 @@
 
     function confirm(){
         if(gramsOfCarbs != "" && !confirmedPressed){
-            gramsOfCarbs = parseInt(gramsOfCarbs);
 
             var buttonDeliver = document.createElement('button');
             buttonDeliver.id= 'bDeliver';
@@ -80,7 +79,13 @@
             buttonDeliver.innerHTML = 'DELIVER';
             buttonDeliver.onclick = sendInputToController;
 
-            document.getElementById('gridOfNumbers').appendChild(buttonDeliver);
+            var formDeliver = document.createElement('form');
+            formDeliver.action = 'http://localhost:8080/calculateBolus?gramsOfCarbs='+gramsOfCarbs;
+            formDeliver.method = 'post';
+
+            formDeliver.appendChild(buttonDeliver);
+
+            document.getElementById('gridOfNumbers').appendChild(formDeliver);
             confirmedPressed = true;
         }
     };

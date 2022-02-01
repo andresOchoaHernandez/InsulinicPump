@@ -107,8 +107,9 @@ public class Controller {
         if(!insulinDelivered) controllerData.setDeviceStatus("DEV ERROR");
     }
 
-    public void bolusInsulinDeliver(int gramsOfCarbs){
+    public boolean bolusInsulinDeliver(int gramsOfCarbs){
         // TODO
+        return true;
     }
 
     public void executeDeviceRoutineTest(){
@@ -147,16 +148,6 @@ public class Controller {
                                                  controllerData.getGraphDuration(),
                                                  controllerData.getDeviceStatus(),
                                                  controllerData.getDeliveredInsulin());
-    }
-
-    public void standByMode() {
-        System.out.println(" [Controller]  Entering StandBy mode ...");
-        try{
-            Thread.sleep(1000);
-        }
-        catch(InterruptedException e){
-            e.printStackTrace();
-        }
     }
 
     private Timestamp createTimeStamp(String timeStamp){

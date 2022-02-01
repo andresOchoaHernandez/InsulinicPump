@@ -1,5 +1,6 @@
 package com.andreso.insulinicpump.view.controller;
 
+import com.andreso.insulinicpump.device.MainControlLoop;
 import com.andreso.insulinicpump.view.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,9 @@ public class ViewControllerUi {
 
     @Autowired
     private BGBoundsRepository bounds;
+
+    @Autowired
+    private MainControlLoop mainControlLoop;
 
     @RequestMapping("/")
     public String chart(Model model){
@@ -69,6 +73,8 @@ public class ViewControllerUi {
 
     @RequestMapping("/bolus")
     public String bolus(){
+        //TODO FIX
+        //mainControlLoop.bolus();
         return "bolus";
     }
 }
