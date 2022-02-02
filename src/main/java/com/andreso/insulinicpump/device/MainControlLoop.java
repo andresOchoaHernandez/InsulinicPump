@@ -11,14 +11,6 @@ public class MainControlLoop implements CommandLineRunner {
     private int gramsOfCarbs;
     private boolean waitForRestControllerData = true;
 
-    public void setWaitForRestControllerData(boolean waitForRestControllerData) {
-        this.waitForRestControllerData = waitForRestControllerData;
-    }
-
-    public void setGramsOfCarbs(int gramsOfCarbs) {
-        this.gramsOfCarbs = gramsOfCarbs;
-    }
-
     public MainControlLoop(){
         this.controller = new Controller();
     }
@@ -45,6 +37,26 @@ public class MainControlLoop implements CommandLineRunner {
         stopDevice();
     }
 
+    public void setWaitForRestControllerData(boolean waitForRestControllerData) {
+        this.waitForRestControllerData = waitForRestControllerData;
+    }
+
+    public void setGramsOfCarbs(int gramsOfCarbs) {
+        this.gramsOfCarbs = gramsOfCarbs;
+    }
+
+    public void bolus(){
+        synchronized (this){
+
+            while(waitForRestControllerData){}
+
+            controller.bolusInsulinDeliver(gramsOfCarbs);
+            gramsOfCarbs=0;
+            waitForRestControllerData=true;
+            notify();
+        }
+    }
+
     private void startDevice(){
         controller.executeDeviceRoutineTest();
         controller.turnOnDisplay();
@@ -62,17 +74,5 @@ public class MainControlLoop implements CommandLineRunner {
         controller.executeDeviceRoutineTest();
         controller.sendInformationToViewController();
         controller.refreshDisplay();
-    }
-
-    public void bolus(){
-        synchronized (this){
-
-            while(waitForRestControllerData){}
-
-            controller.bolusInsulinDeliver(gramsOfCarbs);
-            gramsOfCarbs=0;
-            waitForRestControllerData=true;
-            notify();
-        }
     }
 }
