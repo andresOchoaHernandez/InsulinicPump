@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="worked on synchronization in bolus functionality">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/view/controller/ViewControllerUi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/view/controller/ViewControllerUi.java" afterDir="false" />
-    </list>
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="worked on synchronization in bolus functionality" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
