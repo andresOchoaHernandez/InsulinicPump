@@ -1,7 +1,5 @@
 package com.andreso.insulinicpump.device;
-import com.andreso.insulinicpump.device.pumpcontroller.BolusRestController;
 import com.andreso.insulinicpump.device.pumpcontroller.Controller;
-import com.andreso.insulinicpump.device.pumpcontroller.lock;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -34,13 +32,12 @@ public class MainControlLoop implements CommandLineRunner {
                 controlLoop();
             }
             catch(Exception e){
-                //read all BloodSensor mock data
+                /* read all BloodSensor mock data */
                 break;
             }
 
             synchronized (this){
-                // StandBy mode
-                System.out.println("[MCL] StandBy mode...");
+                /* StandBy mode */
                 wait(5000);
             }
 
@@ -69,18 +66,12 @@ public class MainControlLoop implements CommandLineRunner {
 
     public void bolus(){
         synchronized (this){
-            System.out.println("[BOLUS] acquired the lock...");
 
-            System.out.println("[BOLUS] waiting for BolusRestController data");
             while(waitForRestControllerData){}
-            System.out.println("[BOLUS] BolusRestController gave me the data!");
 
             controller.bolusInsulinDeliver(gramsOfCarbs);
-            System.out.println("[BOLUS]delivered " + gramsOfCarbs + " grams of cb");
-
             gramsOfCarbs=0;
             waitForRestControllerData=true;
-
             notify();
         }
     }
