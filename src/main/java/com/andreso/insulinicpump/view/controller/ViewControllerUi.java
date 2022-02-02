@@ -73,8 +73,10 @@ public class ViewControllerUi {
 
     @RequestMapping("/bolus")
     public String bolus(){
-        //TODO FIX
-        //mainControlLoop.bolus();
+        new Thread(() -> {
+            mainControlLoop.bolus();
+        }).start();
+
         return "bolus";
     }
 }
