@@ -107,9 +107,14 @@ public class Controller {
         if(!insulinDelivered) controllerData.setDeviceStatus("DEV ERROR");
     }
 
-    public boolean bolusInsulinDeliver(int gramsOfCarbs){
-        System.out.println("[controller]TODO: need to implement bolus deliver insulin in controller");
-        return true;
+    public void bolusInsulinDeliver(int gramsOfCarbs){
+        int CHO = gramsOfCarbs / controllerData.getGramsOfCarbsDisposedByOneGramOfInsulin();
+        int highBloodCorrectionDose = Math.abs(controllerData.getCurrentBloodGlucoseReading() - controllerData.getSafeHighBound())/ controllerData.getCorrectionFactor();
+
+        int bolusDose = CHO + highBloodCorrectionDose;
+
+        boolean insulinDelivered = pump.deliverInsulin(bolusDose);
+        if(!insulinDelivered) controllerData.setDeviceStatus("DEV ERROR");
     }
 
     public void executeDeviceRoutineTest(){

@@ -72,7 +72,16 @@ public class ViewControllerUi {
     }
 
     @RequestMapping("/bolus")
-    public String bolus(){
+    public String bolus(Model model){
+
+        Optional<BGBounds> entry = bounds.findById(bounds.count());
+        Optional<DataPoint> lastBloodGlucoseRead = dataset.findById(dataset.count());
+
+        if(entry.isPresent() && lastBloodGlucoseRead.isPresent()){
+            model.addAttribute("safeHighValue",entry.get().getSafeHighBound());
+            model.addAttribute("lastBloodGlucoseRead",lastBloodGlucoseRead.get().getGlucoseLevel());
+        }
+
         new Thread(() -> {
             mainControlLoop.bolus();
         }).start();

@@ -22,6 +22,7 @@ public class Pump extends DeviceComponent{
     }
 
     public boolean deliverInsulin(int unitsOfInsulin){
+        System.out.println("[PUMP] delivered " + unitsOfInsulin + " units of insulin");
         unitsOfInsulinReservoir -= unitsOfInsulin;
         return true;
     }

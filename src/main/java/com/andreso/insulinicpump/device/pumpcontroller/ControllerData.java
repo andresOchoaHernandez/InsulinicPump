@@ -1,11 +1,12 @@
 package com.andreso.insulinicpump.device.pumpcontroller;
 
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.LinkedList;
 
 public class ControllerData {
+
+    private int gramsOfCarbsDisposedByOneGramOfInsulin;
+    private int correctionFactor;
 
     private boolean isFirstTimeStamp;
     private Timestamp firstTimeStamp;
@@ -27,6 +28,9 @@ public class ControllerData {
     private int minimumDose;
 
     public ControllerData(){
+        gramsOfCarbsDisposedByOneGramOfInsulin = 13;
+        correctionFactor = 50;
+
         isFirstTimeStamp = true;
 
         safeLowBound=72;
@@ -45,6 +49,22 @@ public class ControllerData {
         deliveredInsulin=0;
 
         minimumDose = 1;
+    }
+
+    public int getGramsOfCarbsDisposedByOneGramOfInsulin() {
+        return gramsOfCarbsDisposedByOneGramOfInsulin;
+    }
+
+    public void setGramsOfCarbsDisposedByOneGramOfInsulin(int gramsOfCarbsDisposedByOneGramOfInsulin) {
+        this.gramsOfCarbsDisposedByOneGramOfInsulin = gramsOfCarbsDisposedByOneGramOfInsulin;
+    }
+
+    public int getCorrectionFactor() {
+        return correctionFactor;
+    }
+
+    public void setCorrectionFactor(int correctionFactor) {
+        this.correctionFactor = correctionFactor;
     }
 
     public LinkedList<Integer> getReadings(){
