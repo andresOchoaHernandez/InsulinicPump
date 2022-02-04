@@ -13,9 +13,11 @@ Progetto per fondamenti di ingegneria del software
   
 
 # Descrizone progetto <a name="descrizione"></a>
+Sistema di somministrazione automatizzata di insulina per persone affette da diabete, che permette di mantenere la glicemia (sia a digiuno che dopo i pasti) entro un'intervallo sicuro.
+Il dispositivo, a intervalli regolari di tempo, acquisisce il livello di glucosio nel sangue tramite un sensore, successivamente  calcola la dose correttiva di insulina ed infine la rilascia tramite una pompa.
 
 # Architettura generale <a name="architettura"></a>
-
+![Architettura](src/DocumentationImages/architecture.png)
 # Requisiti <a name="requisiti"></a>
 
 ## Requisiti non funzionali <a name="rnf"></a>
@@ -26,16 +28,12 @@ Progetto per fondamenti di ingegneria del software
 * Deve essere permesso al sistema di rilasciare insulina quando l'utente lo richieda
 * Le misurazioni di glicemia devono essere effettuate regolarmente a intervalli di 5 minuti, in quanto i cambiamenti del livello di glucosio nel sangue ne richiedono diversi
 * La durata della batteria deve essere massimizzata
-* La piattaforma web deve essere disponibile all'utente a prescindere dallo stato del dispositivo
-* La piattaforma web deve garantire la sicurezza e riservatezza dei dati di ogni utente
+
 ## Requisiti funzionali <a name="rf"></a>
 * Ogni componente hardware del sistema (pompa, sensore e batteria) deve essere in grado, tramite i relativi driver, di eseguire un'autodiagnostica e di ritornare al software di controllo lo stato di funzionamento
 * Il sistema deve avvertire l'utente quando le scorte di insulina sono prossime a terminare. Lo stesso per quanto riguarda il livello di batteria del dispositivo
 * Il sistema deve avvertire l'utente di glicemia alta o bassa
 * Dopo i pasti il sistema permette all'utente di inserire i carboidrati ingeriti in modo da rilasciare la giusta quantità di insulina richiesta per mantenere la glicemia in un intervallo sicuro
-* Deve essere possibile per l'utente creare un account nella piattaforma web che gli permetta di registrare il proprio dispositivo. Ogni 12 ore il dispositivo invierà i dati alla piattaforma (statistiche di funzionamento i.e: durata di attività, storico di valori glicemici e unità di insulina, versione del software). 
-* La piattaforma dovrà permettere all'utente di visulizzare lo storico delle informazioni del dispositivo, inoltre la possibilità di richiedere assistenza e/o scorte di insulina e aggiornare il software del dispositivo qualora sia disponibile una nuova versione
-
 # Scenari <a name="scenari"></a>
 
 # Design <a name="design"></a>
