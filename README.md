@@ -17,7 +17,8 @@ Sistema di somministrazione automatizzata di insulina per persone affette da dia
 Il dispositivo, a intervalli regolari di tempo, acquisisce il livello di glucosio nel sangue tramite un sensore, successivamente  calcola la dose correttiva di insulina ed infine la rilascia tramite una pompa.
 
 # Architettura generale <a name="architettura"></a>
-Questa è l'architettura ideata da per rispondere ai requisiti.
+Questa è l'architettura ideata da per rispondere ai requisiti.  
+L'intero applicativo consiste in un'applicazione spring boot che avvia in parallelo i due componenti principali, la view ed il main control loop.
 
 ![Architettura](src/DocumentationImages/architecture.png)
 
@@ -28,15 +29,35 @@ i dati di quest'ultimo. La ragione sta nell'assunzione che il controllore abbia 
 * Il controllore potrebbe essere soggetto a dei vincoli di tempo di esecuzione in CPU, il che potrebbe portare all'impiego di librerie REAL TIME che richiedono particolari sistemi operativi e/o configurazioni
 
 ## Descrizione della view
+La view è un web server che consta di due compnenti:
+* ***rest controller***:  
+riceve i dati forniti dal controllore tramite richieste HTTP POST e li salva nelle strutture dati condivise con il view controller tramite il meccanismo fornito da spring chiamato autowiring
+  
+* ***view controller***:  
+legge le entry nelle strutture dati e le mette a disposizione delle due pagine HTML: chart e bolus, dove verranno visualizzate tramite javascript.  
+Inoltre si sincronizza con il main control loop per il calcolo ed inoculazione della dose di insulina post-pasto, denominata **BOLUS**.
+
 
 ## Descrizione del device
-
+Il device è il componente che fornisce l'implementazione del funzionamento del dispositivo. È strutturato nel seguente modo:
+* **hardware**:  
+astrazioni software che permettono di interagire con i dispositivi fisici (e.g. sensore della glicemia, pompa di iniezione etc...) tramite dei wrapper che interagiscono con i driver.
+* **pump controller**:  
+i cui attori principali sono: 
+  * ***controllore***: implementa le funzionalità safety-critical del sistema
+  * ***rest controller***: riceve l'input dell'utente per il calcolo del *BOLUS*
+* ***main control loop***:  
+istanzia un controllore e utilizza le sue funzionalità seguendo una procedura che può essere vista come una macchina a stati:  
+![MainControlLoop](src/DocumentationImages/MainControlLoop.png)
+* *START DEVICE*: esegue l'autodiagnostica dei componenti hardware per verificarne il corretto funzionamento
+* *CONTROL LOOP*: legge i dati forniti dal sensore di glicemia, calcola la dose di insulina necessaria e la inocula. Riesegue l'autodiagnostica ed invia le informazioni del dispositivo alla view. Infine aggiorna il display.
+* *STAND BY*: Il device aspetta la fine del timer risparmiando batteria
+* *BOLUS*: quando l'utente richiede questa funzionalità tramite la view, l'esecuzione dello standby si blocca. Viene aperto un nuovo thread in cui , non appena l'utente avrà inserito i carboidrati ingeriti durante il pasto, verrà calcolata ed inoculata la dose correttiva di insulina 
+* *STOP DEVICE*: viene spento il dispositivo
 # Requisiti <a name="requisiti"></a>
 ## Requisiti non funzionali <a name="rnf"></a>
 * Il sistema deve essere affidabile nella sua interezza. Di ogni ogni componente (hardware e software) deve essere assicurato il corretto funzionamento a intervalli  regolari di un minuto. In caso di irregolarità, l'utente deve essere immediatamente avvisato dell'inoperatività del dispositivo
-* Le quantità di insulina rilasciate devono mantenere la glicemia entro valori sicuri in base allo stato dell'utente:  
-&emsp;- a digiuno: tra i 72 ed i 126 mg/dl  
-&emsp;- almeno 90 minuti dopo i pasti : tra i 90 ed i 153 mg/dl  
+* Le quantità di insulina rilasciate devono mantenere la glicemia entro valori sicuri: tra i 72 ed i 126 mg/dl   
 * Deve essere permesso al sistema di rilasciare insulina quando l'utente lo richieda
 * Le misurazioni di glicemia devono essere effettuate regolarmente a intervalli di 5 minuti, in quanto i cambiamenti del livello di glucosio nel sangue ne richiedono diversi
 * La durata della batteria deve essere massimizzata

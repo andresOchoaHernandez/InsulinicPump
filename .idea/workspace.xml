@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="finished implementing bolus feature">
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="working on docs">
+      <change afterPath="$PROJECT_DIR$/src/DocumentationImages/MainControlLoop.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andreso/insulinicpump/Application.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,13 +237,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641578409543</updated>
-    </task>
-    <task id="LOCAL-00006" summary="fixed issue on the UI when the controller hasn't delivered data to the server">
-      <created>1642534077083</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1642534077083</updated>
     </task>
     <task id="LOCAL-00007" summary="Added data from a public dataset to simulate continues blood glucose monitoring">
       <created>1642602962507</created>
@@ -579,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1643892177004</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="working on docs">
+      <created>1644071653476</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1644071653477</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -594,7 +596,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="renamed ViewController" />
     <MESSAGE value="added abstract class that generalizes a device component" />
     <MESSAGE value="refactored controller's helper class and started implementation of controller's function: calculateInsulinDose" />
     <MESSAGE value="Added functionalities to Controller" />
@@ -619,6 +620,7 @@
     <MESSAGE value="merged with the branch that handles bolus" />
     <MESSAGE value="little fixes" />
     <MESSAGE value="finished implementing bolus feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished implementing bolus feature" />
+    <MESSAGE value="working on docs" />
+    <option name="LAST_COMMIT_MESSAGE" value="working on docs" />
   </component>
 </project>
