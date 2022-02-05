@@ -17,9 +17,21 @@ Sistema di somministrazione automatizzata di insulina per persone affette da dia
 Il dispositivo, a intervalli regolari di tempo, acquisisce il livello di glucosio nel sangue tramite un sensore, successivamente  calcola la dose correttiva di insulina ed infine la rilascia tramite una pompa.
 
 # Architettura generale <a name="architettura"></a>
-![Architettura](src/DocumentationImages/architecture.png)
-# Requisiti <a name="requisiti"></a>
+Questa è l'architettura ideata da per rispondere ai requisiti.
 
+![Architettura](src/DocumentationImages/architecture.png)
+
+La scelta fondamentale che ha portato a questa strutturazione del software è quella di separare i componenti che gestiscono il dispositivo (il controllore) da quelli che visualizzano
+i dati di quest'ultimo. La ragione sta nell'assunzione che il controllore abbia una maggiore importanza rispetto alla view, che può essere giustificata dalle seguenti ragioni:
+* Il controllore interagisce direttamente con i componenti che interagiscono fisicamente con l'utente  (sistema safety-critical)
+* I cambiamenti nel livello di glucosio nel sangue non sono istantanei (richiedono parecchi minuti), e sono prevedibili
+* Il controllore potrebbe essere soggetto a dei vincoli di tempo di esecuzione in CPU, il che potrebbe portare all'impiego di librerie REAL TIME che richiedono particolari sistemi operativi e/o configurazioni
+
+## Descrizione della view
+
+## Descrizione del device
+
+# Requisiti <a name="requisiti"></a>
 ## Requisiti non funzionali <a name="rnf"></a>
 * Il sistema deve essere affidabile nella sua interezza. Di ogni ogni componente (hardware e software) deve essere assicurato il corretto funzionamento a intervalli  regolari di un minuto. In caso di irregolarità, l'utente deve essere immediatamente avvisato dell'inoperatività del dispositivo
 * Le quantità di insulina rilasciate devono mantenere la glicemia entro valori sicuri in base allo stato dell'utente:  
