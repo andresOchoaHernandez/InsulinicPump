@@ -30,7 +30,7 @@ public class MainControlLoop implements CommandLineRunner {
 
             synchronized (this){
                 /* StandBy mode */
-                wait(5000);
+                wait(300000);
             }
 
         }
