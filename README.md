@@ -25,7 +25,7 @@ L'intero applicativo consiste in un'applicazione spring boot che avvia in parall
 La scelta fondamentale che ha portato a questa strutturazione del software è quella di separare i componenti che gestiscono il dispositivo (il controllore) da quelli che visualizzano
 i dati di quest'ultimo. La ragione sta nell'assunzione che il controllore abbia una maggiore importanza rispetto alla view, che può essere giustificata dalle seguenti ragioni:
 * Il controllore interagisce direttamente con i componenti che interagiscono fisicamente con l'utente  (sistema safety-critical)
-* I cambiamenti nel livello di glucosio nel sangue non sono istantanei (richiedono parecchi minuti), e sono prevedibili
+* I cambiamenti nel livello di glucosio nel sangue non sono istantanei (richiedono parecchi minuti), e sono prevedibili.
 * Il controllore potrebbe essere soggetto a dei vincoli di tempo di esecuzione in CPU, il che potrebbe portare all'impiego di librerie REAL TIME che richiedono particolari sistemi operativi e/o configurazioni
 
 ## Descrizione della view
@@ -69,6 +69,5 @@ istanzia un controllore e utilizza le sue funzionalità seguendo una procedura c
 * Dopo i pasti il sistema permette all'utente di inserire i carboidrati ingeriti in modo da rilasciare la giusta quantità di insulina richiesta per mantenere la glicemia in un intervallo sicuro
 # Scenari <a name="scenari"></a>
 
-# Design <a name="design"></a>
 
 # Quality assurance <a name="qa"></a>
