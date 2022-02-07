@@ -82,6 +82,8 @@ public class ViewControllerUi {
             model.addAttribute("lastBloodGlucoseRead",lastBloodGlucoseRead.get().getGlucoseLevel());
         }
 
+        System.out.println("SONO QUI TEST");
+
         new Thread(() -> {
             mainControlLoop.bolus();
         }).start();

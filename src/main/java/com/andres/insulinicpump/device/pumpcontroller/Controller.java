@@ -34,6 +34,11 @@ public class Controller {
         httpRequestHandler = new HttpRequestHandler();
     }
 
+    public ControllerData getControllerData(){
+        /* for testing purposes only */
+        return this.controllerData;
+    }
+
     public void turnOnDisplay(){
         this.display.turnOn();
     }
@@ -135,11 +140,13 @@ public class Controller {
         }
     }
 
-    public void sendInformationToViewController(){
-
+    public void collectHardwareInfo(){
         controllerData.setBatteryLevel(powerSupply.getBatteryLevel());
         controllerData.setGraphDuration(calculateGraphDuration(controllerData.getTimeStamp()));
         controllerData.setInsulinReservoir(pump.getInsulinReservoirLevel());
+    }
+
+    public void sendInformationToViewController(){
 
         httpRequestHandler.sendSafeBounds(controllerData.getSafeLowBound(),
                                           controllerData.getSafeHighBound());

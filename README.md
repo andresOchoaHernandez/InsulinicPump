@@ -92,7 +92,7 @@ istanzia un controllore e utilizza le sue funzionalità seguendo una procedura c
    - **output**:  
      - *r2 < r1* : glicemia in calo, dose : 0
      - *r2 = r1* : glicemia costante, se è inferiore o uguale a 126 mg/dl dose:0, altrimenti dose: dose minima
-     - *r2 > r1* : glicemia in crescita, se il rate di crescita sta diminuendo: dose 0, altrimenti: dose (r2 - r1)/4
+     - *r2 > r1* : glicemia in crescita, se il rate di crescita sta diminuendo: dose 0, altrimenti: dose = arrotonda((r2 - r1)/4), se dose arrotonda a zero, dose = dose minima 
    - **problemi**:
 5. visualizzazione dello stato del dispositivo
    - **attori**: utente del sistema

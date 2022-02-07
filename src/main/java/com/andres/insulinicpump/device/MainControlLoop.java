@@ -44,6 +44,8 @@ public class MainControlLoop implements CommandLineRunner {
     }
 
     public void bolus(){
+
+        System.out.println("SONO QUI BOLUS TEST");
         synchronized (this){
 
             while(waitForRestControllerData){}
@@ -70,6 +72,7 @@ public class MainControlLoop implements CommandLineRunner {
         controller.calculateInsulinDose();
         controller.deliverInsulin();
         controller.executeDeviceRoutineTest();
+        controller.collectHardwareInfo();
         controller.sendInformationToViewController();
         controller.refreshDisplay();
     }

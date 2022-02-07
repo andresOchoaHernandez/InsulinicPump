@@ -1,6 +1,8 @@
 package com.andres.insulinicpump.acceptance;
 
 import com.andres.insulinicpump.device.MainControlLoop;
+import com.andres.insulinicpump.device.pumpcontroller.Controller;
+import com.andres.insulinicpump.device.pumpcontroller.ControllerData;
 import com.andres.insulinicpump.device.pumpcontroller.HttpRequestHandler;
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.After;
@@ -22,21 +24,22 @@ public abstract class AcceptanceBaseTest {
     /* In testing environment the main control loop has to be simulated */
     @MockBean
     private MainControlLoop mainControlLoop;
-
-    protected static final HttpRequestHandler httpRequestHandler = new HttpRequestHandler();
-
-
     protected WebDriver driver = null;
-    protected static final String HOME = "http://localhost:8080";
+    protected static final String CHART = "http://localhost:8080";
+
+    protected final Controller controller = new Controller();
+    protected final ControllerData conData = controller.getControllerData();
 
     @Before
     public void setUp(){
+        controller.turnOffDisplay();
         setUpChrome();
     }
 
     private void setUpChrome(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1600,695");
+        //options.addArguments("--headless");
         if(SystemUtils.IS_OS_WINDOWS){
             System.setProperty("webdriver.chrome.driver", Paths.get("./src/main/resources/chromedriver_win32_96/chromedriver.exe").toString());
         }
@@ -47,7 +50,7 @@ public abstract class AcceptanceBaseTest {
             System.setProperty("webdriver.chrome.driver", Paths.get("./src/main/resources/chromedriver_linux64_96/chromedriver.exe").toString());
         }
 
-        //System.setProperty("webdriver.chrome.silentOutput", "true");
+        System.setProperty("webdriver.chrome.silentOutput", "true");
 
         if(this.driver == null)
             this.driver = new ChromeDriver(options);
