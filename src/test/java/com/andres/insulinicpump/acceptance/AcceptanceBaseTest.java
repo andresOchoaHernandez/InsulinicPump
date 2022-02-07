@@ -3,7 +3,6 @@ package com.andres.insulinicpump.acceptance;
 import com.andres.insulinicpump.device.MainControlLoop;
 import com.andres.insulinicpump.device.pumpcontroller.Controller;
 import com.andres.insulinicpump.device.pumpcontroller.ControllerData;
-import com.andres.insulinicpump.device.pumpcontroller.HttpRequestHandler;
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.After;
 import org.junit.Before;
@@ -24,6 +23,7 @@ public abstract class AcceptanceBaseTest {
     /* In testing environment the main control loop has to be simulated */
     @MockBean
     private MainControlLoop mainControlLoop;
+
     protected WebDriver driver = null;
     protected static final String CHART = "http://localhost:8080";
 
