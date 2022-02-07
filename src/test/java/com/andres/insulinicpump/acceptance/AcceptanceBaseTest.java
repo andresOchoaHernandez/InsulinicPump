@@ -1,9 +1,10 @@
 package com.andres.insulinicpump.acceptance;
 
 import com.andres.insulinicpump.device.MainControlLoop;
+import com.andres.insulinicpump.device.pumpcontroller.HttpRequestHandler;
 import org.apache.commons.lang3.SystemUtils;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -22,11 +23,13 @@ public abstract class AcceptanceBaseTest {
     @MockBean
     private MainControlLoop mainControlLoop;
 
+    protected static final HttpRequestHandler httpRequestHandler = new HttpRequestHandler();
+
 
     protected WebDriver driver = null;
     protected static final String HOME = "http://localhost:8080";
 
-    @BeforeAll
+    @Before
     public void setUp(){
         setUpChrome();
     }
@@ -44,16 +47,15 @@ public abstract class AcceptanceBaseTest {
             System.setProperty("webdriver.chrome.driver", Paths.get("./src/main/resources/chromedriver_linux64_96/chromedriver.exe").toString());
         }
 
-        System.setProperty("webdriver.chrome.silentOutput", "true");
+        //System.setProperty("webdriver.chrome.silentOutput", "true");
 
         if(this.driver == null)
             this.driver = new ChromeDriver(options);
     }
 
-    @AfterAll
+    @After
     public void shutDown(){
         if(this.driver != null){
-            this.driver.close();
             this.driver.quit();
         }
     }
