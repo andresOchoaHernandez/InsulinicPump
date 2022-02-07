@@ -17,20 +17,18 @@ public class MainControlLoop implements CommandLineRunner {
 
     @Override
     public void run(String...args) throws Exception{
-
+        System.out.println("MAIN CONTROL LOOP STARTED");
         startDevice();
         while(true){
             try{
                 controlLoop();
             }
             catch(Exception e){
-                /* read all BloodSensor mock data */
                 break;
             }
 
             synchronized (this){
-                /* StandBy mode */
-                wait(300000);
+                wait(100);
             }
 
         }
