@@ -3,6 +3,7 @@ package com.andres.insulinicpump.acceptance;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.NoSuchElementException;
 
@@ -161,34 +162,5 @@ public class AcceptanceTests extends AcceptanceBaseTest{
         controller.sendInformationToViewController();
         driver.get(CHART);
         assertEquals(conData.getMinimumDose() + " units",driver.findElement(By.id("diData")).getText());
-    }
-
-    private void sleep(){
-        try{
-            Thread.sleep(10000);
-        }
-        catch(Exception e){
-
-        }
-    }
-
-    @Test
-    public void bolus(){
-        conData.setCurrentBloodGlucoseReading(120);
-        controller.sendInformationToViewController();
-        driver.get(CHART);
-        driver.findElement(By.xpath("//button[contains(text(),'BOLUS')]")).click();
-        driver.findElement(By.xpath("//input[@value='7']")).click();
-        driver.findElement(By.xpath("//input[@value='0']")).click();
-        driver.findElement(By.xpath("//input[@value='\uD83D\uDDF8']")).click();
-        try{
-            driver.findElement(By.xpath("//p[contains(text(),'bolus dose before the meal')]"));
-            assertTrue(true);
-        }
-        catch(NoSuchElementException e){
-            assertTrue(false);
-        }
-
-        //driver.findElement(By.xpath("//button[contains(text(),'DELIVER')]")).click();
     }
 }
