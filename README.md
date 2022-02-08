@@ -7,9 +7,8 @@ Progetto per fondamenti d'ingegneria del software
 &emsp;[3.Requisiti](#requisiti)   
 &emsp;&emsp;[3.1.Requisiti non funzionali](#rnf)  
 &emsp;&emsp;[3.2.Requisiti funzionali](#rf)  
-&emsp;[4.Scenari](#scenari)  
-&emsp;[5.Design](#design)  
-&emsp;[6.Quality assurance](#qa)  
+&emsp;[4.Scenari](#scenari)   
+&emsp;[5.Quality assurance](#qa)  
   
 
 # Descrizone progetto <a name="descrizione"></a>
@@ -104,7 +103,8 @@ istanzia un controllore e utilizza le sue funzionalità seguendo una procedura c
 ## Acceptance tests
 Nel package acceptance ho implementato i casi di test per 4/5 scenari descritti sopra. Non sono riuscito a scrivere il caso di test per il primo scenario in quanto:
 * Se MainControlLoop non viene marcato come @MockedBean, i test vengono istanziati dopo che questo finisce di eseguire, cosa che comporta l'uscita dall'intera applicazione 
-* Non ho trovato il modo di avviare programmaticamente un'altra istanza dell'intera applicazione, in modo da poter avviare il caso di test parallelamente da essa
+* Non ho trovato il modo di avviare programmaticamente un'altra istanza dell'intera applicazione, in modo da poter avviare il caso di test parallelamente a essa.  
+
 Durante lo sviluppo della feature che risponde allo scenario ho comunque avuto modo di testarne la correttezza.
 ## Code Coverage
 Complessivamente i test hanno prodotto le seguenti statistiche di code coverage:
