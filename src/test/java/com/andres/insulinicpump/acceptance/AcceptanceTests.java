@@ -3,13 +3,16 @@ package com.andres.insulinicpump.acceptance;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.NoSuchElementException;
 
 import static org.junit.Assert.*;
 
 public class AcceptanceTests extends AcceptanceBaseTest{
+
+    @Test
+    public void bolus(){
+    }
 
     @Test
     public void batteryStatus(){

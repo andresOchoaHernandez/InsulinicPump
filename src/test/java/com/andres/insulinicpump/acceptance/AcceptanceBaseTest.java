@@ -39,7 +39,7 @@ public abstract class AcceptanceBaseTest {
     private void setUpChrome(){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--window-size=1600,695");
-        //options.addArguments("--headless");
+        options.addArguments("--headless");
         if(SystemUtils.IS_OS_WINDOWS){
             System.setProperty("webdriver.chrome.driver", Paths.get("./src/main/resources/chromedriver_win32_96/chromedriver.exe").toString());
         }

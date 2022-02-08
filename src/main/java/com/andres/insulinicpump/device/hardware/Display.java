@@ -20,6 +20,10 @@ public class Display extends DeviceComponent{
         this.driver = new ChromeDriver(options);
     }
 
+    public WebDriver getDriver(){
+        return this.driver;
+    }
+
     @Override
     public boolean selfTest() {
         return this.isDeviceWorkingProperly;
@@ -33,6 +37,7 @@ public class Display extends DeviceComponent{
 
     public void turnOff(){
         this.driver.close();
+        this.driver.quit();
     }
 
 }

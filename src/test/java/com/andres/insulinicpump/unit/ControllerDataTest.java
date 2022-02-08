@@ -65,6 +65,12 @@ public class ControllerDataTest {
 
         cd.setMinimumDose(5);
         assertEquals(cd.getMinimumDose(),5);
+
+        cd.setCorrectionFactor(5);
+        assertEquals(5,cd.getCorrectionFactor());
+
+        cd.setGramsOfCarbsDisposedByOneGramOfInsulin(5);
+        assertEquals(5,cd.getGramsOfCarbsDisposedByOneGramOfInsulin());
     }
 
 }

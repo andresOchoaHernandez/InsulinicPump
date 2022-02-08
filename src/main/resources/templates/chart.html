@@ -112,7 +112,6 @@ const myChart = new Chart(ctx,
 <div id ="alertDiv">
 </div>
 <script th:inline="javascript">
-
     var alertDivContainer = document.getElementById('alertDiv');
 
     if([[${batteryLevel}]]!= null && [[${batteryLevel}]] <= 20 ){
