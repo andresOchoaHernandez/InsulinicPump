@@ -27,7 +27,7 @@ public class MainControlLoop implements CommandLineRunner {
             }
 
             synchronized (this){
-                wait(100);
+                wait(1000);
             }
 
         }

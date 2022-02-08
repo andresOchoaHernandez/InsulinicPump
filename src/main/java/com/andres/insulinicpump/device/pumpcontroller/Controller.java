@@ -12,7 +12,7 @@ public class Controller {
 
     private final ControllerData controllerData;
 
-    private final Display display;
+    private Display display;
     private final BloodSensor bloodSensor;
     private final Clock clock;
     private final PowerSupply powerSupply;
@@ -25,6 +25,7 @@ public class Controller {
         controllerData = new ControllerData();
 
         display = new Display();
+
         bloodSensor = new BloodSensor();
         clock = new Clock();
         powerSupply = new PowerSupply();
