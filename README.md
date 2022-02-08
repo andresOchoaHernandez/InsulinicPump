@@ -101,3 +101,13 @@ istanzia un controllore e utilizza le sue funzionalità seguendo una procedura c
    - **output**: se almeno uno dei componenti hardware presenta dei problemi, il sistema avverte l'utente, altrimenti visualizza "OK"
 
 # Quality assurance <a name="qa"></a>
+## Acceptance tests
+Nel package acceptance ho implementato i casi di test per 4/5 scenari descritti sopra. Non sono riuscito a scrivere il caso di test per il primo scenario in quanto:
+* Se MainControlLoop non viene marcato come @MockedBean, i test vengono istanziati dopo che questo finisce di eseguire, cosa che comporta l'uscita dall'intera applicazione 
+* Non ho trovato il modo di avviare programmaticamente un'altra istanza dell'intera applicazione, in modo da poter avviare il caso di test parallelamente da essa
+Durante lo sviluppo della feature che risponde allo scenario ho comunque avuto modo di testarne la correttezza.
+## Code Coverage
+Complessivamente i test hanno prodotto le seguenti statistiche di code coverage:
+* *class*: 94%
+* *Method*: 72%
+* *Line*: 74%

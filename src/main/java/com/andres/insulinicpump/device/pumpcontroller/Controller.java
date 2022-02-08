@@ -52,11 +52,12 @@ public class Controller {
 
     public void readGlucoseLevel(){
         controllerData.setTimeStamp(clock.getCurrentTimeStamp());
-        controllerData.setCurrentBloodGlucoseReading(bloodSensor.getMeasurement());
 
         if (controllerData.isFirstTimeStamp())
             controllerData.setFirstTimeStamp(createTimeStamp(controllerData.getTimeStamp()));
         controllerData.setFirstTimeStamp(false);
+
+        controllerData.setCurrentBloodGlucoseReading(bloodSensor.getMeasurement());
     }
 
     public void calculateInsulinDose(){

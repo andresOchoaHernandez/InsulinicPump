@@ -11,7 +11,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.nio.file.Paths;
@@ -21,18 +20,16 @@ import java.nio.file.Paths;
 public abstract class AcceptanceBaseTest {
 
     /* In testing environment the main control loop has to be simulated */
-    @MockBean
-    private MainControlLoop mainControlLoop;
+
 
     protected WebDriver driver = null;
     protected static final String CHART = "http://localhost:8080";
 
-    protected final Controller controller = new Controller();
-    protected final ControllerData conData = controller.getControllerData();
+    protected Controller controller;
+    protected ControllerData conData;
 
     @Before
     public void setUp(){
-        controller.turnOffDisplay();
         setUpChrome();
     }
 

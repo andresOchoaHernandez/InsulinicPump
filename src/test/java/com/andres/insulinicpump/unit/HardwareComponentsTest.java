@@ -2,7 +2,6 @@ package com.andres.insulinicpump.unit;
 
 import com.andres.insulinicpump.device.hardware.*;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
