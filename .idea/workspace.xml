@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="working on unit tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/utils/TestHelper.java" afterDir="false" />
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="refactored tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/ModelTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/AcceptanceBaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/AcceptanceBaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/BatteryStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/BatteryStatusTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/DeviceStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/DeviceStatusTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/InsulinDeliverTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/InsulinDeliverTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/insulinReservoirStatusTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/acceptance/insulinReservoirStatusTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/ControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/ControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/HardwareComponentsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/HardwareComponentsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/RestControllersTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/RestControllersTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/andres/insulinicpump/view/model/DataPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andres/insulinicpump/view/model/DataPoint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +116,7 @@
       <recent name="C:\Users\adawo\IdeaProjects\InsulinicPump\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in InsulinPump.test (2)">
+  <component name="RunManager" selected="JUnit.ModelTests">
     <configuration name="All in InsulinPump.test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="InsulinPump.test" />
       <option name="PACKAGE_NAME" value="" />
@@ -130,14 +126,6 @@
       </method>
     </configuration>
     <configuration name="All in InsulinPump.test (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="InsulinPump.test" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in InsulinPump.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="InsulinPump.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -155,6 +143,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.andres.insulinicpump.acceptance" />
       <option name="MAIN_CLASS_NAME" value="com.andres.insulinicpump.acceptance.Bolus" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ModelTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="InsulinPump.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.andres.insulinicpump.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.andres.insulinicpump.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.andres.insulinicpump.unit.ModelTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -187,11 +190,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ModelTests" />
         <item itemvalue="JUnit.All in InsulinPump.test (2)" />
         <item itemvalue="JUnit.com.andres.insulinicpump.unit in InsulinPump.test" />
         <item itemvalue="JUnit.Bolus" />
         <item itemvalue="JUnit.All in InsulinPump.test (1)" />
-        <item itemvalue="JUnit.All in InsulinPump.test" />
       </list>
     </recent_temporary>
   </component>
@@ -203,13 +206,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641578409543</updated>
-    </task>
-    <task id="LOCAL-00021" summary="little fixes">
-      <created>1642776465678</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1642776465678</updated>
     </task>
     <task id="LOCAL-00022" summary="little fixes">
       <created>1643012505159</created>
@@ -547,7 +543,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644405374543</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="refactored tests">
+      <created>1644406087476</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1644406087476</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -562,7 +565,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="little refactoring" />
     <MESSAGE value="changed Blood sensor and clock implementing separation between the measurements coming from the sensor and the timeStamps coming from Clock class" />
     <MESSAGE value="mocked powersupply and pump data" />
     <MESSAGE value="added exit point" />
@@ -587,7 +589,8 @@
     <MESSAGE value="working on acceptance tests" />
     <MESSAGE value="finished implementing Acceptance tests" />
     <MESSAGE value="working on unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="working on unit tests" />
+    <MESSAGE value="refactored tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactored tests" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/InsulinPump$All_in_InsulinPump_test__1_.ic" NAME="All in InsulinPump.test (1) Coverage Results" MODIFIED="1644346177967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

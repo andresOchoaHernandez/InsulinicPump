@@ -23,14 +23,6 @@ public class DataPoint {
         this.derivative = derivative;
     }
 
-    public int getDerivative() {
-        return derivative;
-    }
-
-    public void setDerivative(int derivative) {
-        this.derivative = derivative;
-    }
-
     @Override
     public String toString() {
         return "DataPoint{" +
@@ -63,5 +55,13 @@ public class DataPoint {
 
     public void setGlucoseLevel(Integer glucoseLevel) {
         this.glucoseLevel = glucoseLevel;
+    }
+
+    public int getDerivative() {
+        return derivative;
+    }
+
+    public void setDerivative(int derivative) {
+        this.derivative = derivative;
     }
 }
