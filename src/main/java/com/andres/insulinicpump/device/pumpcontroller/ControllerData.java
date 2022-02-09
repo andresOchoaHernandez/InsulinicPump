@@ -17,7 +17,7 @@ public class ControllerData {
     private String timeStamp;
     private int currentBloodGlucoseReading;
     private int derivative;
-    private LinkedList<Integer> readings;
+    private final LinkedList<Integer> readings;
 
     private int batteryLevel;
     private int insulinReservoir;

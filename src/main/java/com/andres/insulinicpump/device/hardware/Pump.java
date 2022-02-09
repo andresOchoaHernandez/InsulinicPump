@@ -3,7 +3,7 @@ package com.andres.insulinicpump.device.hardware;
 public class Pump extends DeviceComponent{
 
     private int unitsOfInsulinReservoir;
-    private int reservoirFullCapacity;
+    private final int reservoirFullCapacity;
 
     public Pump(){
         reservoirFullCapacity = readInsulinReservoirFullCapacityFromDriver();

@@ -12,7 +12,7 @@ public class Controller {
 
     private final ControllerData controllerData;
 
-    private Display display;
+    private final Display display;
     private final BloodSensor bloodSensor;
     private final Clock clock;
     private final PowerSupply powerSupply;

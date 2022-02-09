@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 public class Clock extends DeviceComponent{
 
     /* mocked time */
-    private long fiveMinutesOffSet = 300000;
+    private final long fiveMinutesOffSet = 300000;
     private Timestamp previousTimeStamp;
     private boolean firstTimeStamp = true;
     /*============*/

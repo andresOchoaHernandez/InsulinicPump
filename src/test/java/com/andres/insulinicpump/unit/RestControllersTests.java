@@ -84,7 +84,6 @@ public class RestControllersTests {
     @Test
     public void insertBounds(){
         String[] params = {"safeLowBound","safeHighBound"};
-        String now = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Timestamp(System.currentTimeMillis()));
         String[] values = {
                 "72",
                 "126"

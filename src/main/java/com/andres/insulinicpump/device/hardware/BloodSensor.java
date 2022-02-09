@@ -10,7 +10,7 @@ public class BloodSensor  extends DeviceComponent{
 
     /*  =========================== mocked data =========================== */
     private class MockedBloodSensorData{
-        private LinkedList<Integer> dataPoints = new LinkedList<>();
+        private final LinkedList<Integer> dataPoints = new LinkedList<>();
 
         private void readData() throws FileNotFoundException{
 
@@ -43,7 +43,7 @@ public class BloodSensor  extends DeviceComponent{
     }
     /*  ================================================================== */
 
-    private MockedBloodSensorData mockedData;
+    private final MockedBloodSensorData mockedData;
 
     private int readBloodGlucoseLevel;
 
