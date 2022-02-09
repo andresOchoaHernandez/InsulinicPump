@@ -11,6 +11,10 @@ import static org.junit.Assert.assertEquals;
 
 @DirtiesContext
 public class InsulinDeliverTest extends AcceptanceBaseTest{
+
+    /* In testing environment the main control loop has to be simulated for
+     * the reasons I explained in readme.
+     */
     @MockBean
     private MainControlLoop mainControlLoop;
 

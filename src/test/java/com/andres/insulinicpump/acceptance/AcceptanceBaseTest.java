@@ -18,10 +18,6 @@ import java.nio.file.Paths;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 public abstract class AcceptanceBaseTest {
-
-    /* In testing environment the main control loop has to be simulated */
-
-
     protected WebDriver driver = null;
     protected static final String CHART = "http://localhost:8080";
 

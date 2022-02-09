@@ -1,11 +1,8 @@
 package com.andres.insulinicpump.unit;
 
 import com.andres.insulinicpump.device.hardware.*;
+import com.andres.insulinicpump.unit.utils.TestHelper;
 import org.junit.jupiter.api.Test;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.LinkedList;
@@ -39,7 +36,7 @@ public class HardwareComponentsTest {
         assertTrue(b.selfTest());
 
         try {
-            LinkedList<Integer> mockedData = readMockedData();
+            LinkedList<Integer> mockedData = TestHelper.readMockedData();
             for(Integer dataPoint: mockedData){
                 if(dataPoint != b.getMeasurement()){
                     assertTrue(false);
@@ -52,25 +49,6 @@ public class HardwareComponentsTest {
             assertTrue(false);
         }
 
-    }
-
-    private LinkedList<Integer> readMockedData() throws Exception{
-
-        LinkedList<Integer> data = new LinkedList<>();
-
-        BufferedReader br = new BufferedReader(new FileReader("src\\main\\resources\\CGMData\\data.txt"));
-        try{
-            String line = br.readLine();
-            while (line != null) {
-                data.add(Integer.parseInt(line));
-                line = br.readLine();
-            }
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-
-        return data;
     }
 
     @Test
