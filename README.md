@@ -1,6 +1,9 @@
 # InsulinicPump
 Progetto per fondamenti d'ingegneria del software
 
+# Avviare il progetto tramite gradle
+Prima di effettuare una **bootRun** è possibile cambiare il parametro della funzione ***wait*** alla linea 30 della classe com.andres.insulinicpump.device.MainControlLoop
+
 # Contenuti
 &emsp;[1.Descrizione progetto](#descrizione)  
 &emsp;[2.Architettura generale](#architettura)  
