@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="refactored tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/andres/insulinicpump/unit/ModelTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="ea00844d-0ce6-42c8-bba7-ad37658e0652" name="Changes" comment="finished unit testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/andres/insulinicpump/view/model/DataPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/andres/insulinicpump/view/model/DataPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,8 +112,8 @@
       <recent name="C:\Users\adawo\IdeaProjects\InsulinicPump\src\main\resources\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ModelTests">
-    <configuration name="All in InsulinPump.test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.All in InsulinPump.test">
+    <configuration name="All in InsulinPump.test (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="InsulinPump.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -125,7 +121,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in InsulinPump.test (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in InsulinPump.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="InsulinPump.test" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
@@ -190,11 +186,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.All in InsulinPump.test" />
         <item itemvalue="JUnit.ModelTests" />
         <item itemvalue="JUnit.All in InsulinPump.test (2)" />
         <item itemvalue="JUnit.com.andres.insulinicpump.unit in InsulinPump.test" />
         <item itemvalue="JUnit.Bolus" />
-        <item itemvalue="JUnit.All in InsulinPump.test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -206,13 +202,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1641578409543</updated>
-    </task>
-    <task id="LOCAL-00022" summary="little fixes">
-      <created>1643012505159</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1643012505159</updated>
     </task>
     <task id="LOCAL-00023" summary="added abstract class that generalizes a device component">
       <created>1643016114280</created>
@@ -550,7 +539,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644406087476</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="finished unit testing">
+      <created>1644407625271</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1644407625271</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -565,7 +561,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changed Blood sensor and clock implementing separation between the measurements coming from the sensor and the timeStamps coming from Clock class" />
     <MESSAGE value="mocked powersupply and pump data" />
     <MESSAGE value="added exit point" />
     <MESSAGE value="changed chromedriver logging to get rid of annoying messages" />
@@ -590,7 +585,8 @@
     <MESSAGE value="finished implementing Acceptance tests" />
     <MESSAGE value="working on unit tests" />
     <MESSAGE value="refactored tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactored tests" />
+    <MESSAGE value="finished unit testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished unit testing" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/InsulinPump$All_in_InsulinPump_test__1_.ic" NAME="All in InsulinPump.test (1) Coverage Results" MODIFIED="1644346177967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -603,6 +599,6 @@
     <SUITE FILE_PATH="coverage/InsulinPump$com_andres_insulinicpump_unit_in_InsulinPump_test.ic" NAME="com.andres.insulinicpump.unit in InsulinPump.test Coverage Results" MODIFIED="1644347974098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.andres.insulinicpump.unit.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/InsulinPump$All_in_InsulinPump_test.ic" NAME="All in InsulinPump.test Coverage Results" MODIFIED="1644346115481" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/InsulinPump$All_in_InsulinPump_test.ic" NAME="All in InsulinPump.test Coverage Results" MODIFIED="1644407640240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

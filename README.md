@@ -109,5 +109,5 @@ Durante lo sviluppo della feature che risponde allo scenario ho comunque avuto m
 ## Code Coverage
 Complessivamente i test hanno prodotto le seguenti statistiche di code coverage:
 * *class*: 94%
-* *Method*: 72%
-* *Line*: 74%
+* *Method*: 81%
+* *Line*: 77%
